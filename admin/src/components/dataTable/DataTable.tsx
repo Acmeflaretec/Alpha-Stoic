@@ -12,7 +12,7 @@ interface Users {
   _id: string;
  
 }
-const URL ='http://localhost:5000'
+const URL ='https://backend.alphastoic.in'
 const DataTable = ({ columns}: Props) => {
 
   const [users, setUsers] = useState<Users[]>([]);

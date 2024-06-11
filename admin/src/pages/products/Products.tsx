@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import './style.css'
 
-const URL="http://localhost:5000"
+const URL="https://backend.alphastoic.in"
 
 interface Event {
   _id: string;
