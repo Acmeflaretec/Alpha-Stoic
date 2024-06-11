@@ -52,7 +52,7 @@ const Team = () => {
         />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {teamMembers.map((member) => (
-            <div className="flex flex-col items-center bg-gray-light dark:bg-bg-color-dark" >
+            <div key={member.id} className="flex flex-col items-center bg-gray-light dark:bg-bg-color-dark" >
               <img src={member.image} alt={member.name} className="mb-4" />
               <h3 className="text-lg font-semibold mb-2">{member.name}</h3>
               <p className="text-sm text-gray-600 mb-5">{member.position}</p>
