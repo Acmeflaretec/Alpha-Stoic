@@ -6,7 +6,7 @@ const PrivacyPolicyPage = () => {
             <h3 className="text-center" style={{ fontWeight: "500", fontSize: '25px' }}>Privacy Policy</h3>
             <div>10/06/2024</div>
             <h4>Alpha Stoic</h4>
-            <p>Welcome to Alpha Stoic. We are committed to protecting and respecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website [www.alphastoic.com] (the &quot;Site&quot;) and use our services, including courses, workshops, and webinars related to stock market and crypto trading (collectively, the &quot;Services&quot;). Please read this policy carefully to understand our views and practices regarding your personal data and how we will treat it.</p>
+            <p>Welcome to Alpha Stoic. We are committed to protecting and respecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website [www.alphastoic.in] (the &quot;Site&quot;) and use our services, including courses, workshops, and webinars related to stock market and crypto trading (collectively, the &quot;Services&quot;). Please read this policy carefully to understand our views and practices regarding your personal data and how we will treat it.</p>
             <h4>1. Information We Collect</h4>
             <h5>We may collect and process the following data about you:</h5>
             <h6>1.1 Information You Provide to Us:</h6>
