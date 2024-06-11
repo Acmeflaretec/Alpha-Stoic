@@ -1,14 +1,9 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-
 import Image from "next/image";
-
 import Workshops from './Workshop';
 import axios from 'axios';
-
-
-
 
 const BlogDetailsPage = () => {
   const [events, setEvents] = useState([]);
@@ -37,7 +32,7 @@ const BlogDetailsPage = () => {
 
                 <div>
                   <p className="mb-10 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
-                    Alpha Stoic Finserve hosts various workshops and events, providing valuable insights and knowledge in the field of finance and investment. The company conducts sessions at schools, colleges, and organizational levels, aiming to educate and empower individuals on financial matters
+                    Alpha Stoic Finserve hosts various workshops and events, providing valuable insights and knowledge in the field of finance and investment. The company conducts sessions at schools, colleges, and organizational levels, aiming to educate and empower individuals on financial matters.
                   </p>
                   <div className="mb-10 w-full overflow-hidden rounded">
                     <div className="relative aspect-[97/60] w-full sm:aspect-[97/44]">
@@ -59,10 +54,9 @@ const BlogDetailsPage = () => {
                     </li>
                     <p className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
                       This workshop focuses on the significance of personal finance management and the role of financial education in building a secure and prosperous future. It covers essential topics such as budgeting, savings, debt management, and long-term financial planning.
-
                     </p>
-
                   </ul>
+
                   <h3 className="font-xl mb-10 font-bold leading-tight text-black dark:text-white sm:text-2xl sm:leading-tight lg:text-xl lg:leading-tight xl:text-2xl xl:leading-tight">
                     Stock Market Simplified: When and How to Invest?
                   </h3>
@@ -73,8 +67,8 @@ const BlogDetailsPage = () => {
                     <p className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
                       This session provides a simplified approach to understanding the stock market, essential investment principles, and strategic entry points for individuals looking to start their investment journey. Topics may include stock selection, risk management, and market analysis.
                     </p>
-
                   </ul>
+
                   <h3 className="font-xl mb-10 font-bold leading-tight text-black dark:text-white sm:text-2xl sm:leading-tight lg:text-xl lg:leading-tight xl:text-2xl xl:leading-tight">
                     Options and Algorithmic Trading
                   </h3>
@@ -85,8 +79,8 @@ const BlogDetailsPage = () => {
                     <p className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
                       This event delves into the intricacies of options trading and algorithmic strategies, offering insights on advanced trading techniques, risk mitigation, and systematic trading approaches in dynamic market conditions.
                     </p>
-
                   </ul>
+
                   <h3 className="font-xl mb-10 font-bold leading-tight text-black dark:text-white sm:text-2xl sm:leading-tight lg:text-xl lg:leading-tight xl:text-2xl xl:leading-tight">
                     A-Z on Investing in Crypto and Digital Assets
                   </h3>
@@ -97,16 +91,14 @@ const BlogDetailsPage = () => {
                     <p className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
                       This workshop provides a comprehensive understanding of cryptocurrency investments and digital assets. It covers the fundamentals of blockchain technology, investment opportunities, risk factors, and regulatory insights in the evolving digital asset landscape.
                     </p>
-
                   </ul>
+
                   <div className="relative z-10 mb-10 overflow-hidden rounded-md bg-primary bg-opacity-10 p-8 md:p-9 lg:p-8 xl:p-9">
                     <p className="text-center text-white text-base font-medium italic text-body-color mb-5">
-                      These workshops and events serve as educational platforms for individuals seeking valuable knowledge, guidance, and practical insights into the world of finance and investment. Participants benefit from the expertise of Alpha Stoic's team and gain valuable perspectives on diverse financial topics.
-
+                      These workshops and events serve as educational platforms for individuals seeking valuable knowledge, guidance, and practical insights into the world of finance and investment. Participants benefit from the expertise of Alpha Stoic&apos;s team and gain valuable perspectives on diverse financial topics.
                     </p>
                     <p className="text-center text-white text-base font-medium italic text-body-color">
-
-                      "If you'd like more details on any specific workshop or event, or if there are additional workshops to be included, feel free to let me know!"
+                      &quot;If you&apos;d like more details on any specific workshop or event, or if there are additional workshops to be included, feel free to let me know!&quot;
                     </p>
                     <span className="absolute left-0 top-0 z-[-1]">
                       <svg
@@ -160,103 +152,67 @@ const BlogDetailsPage = () => {
                         </defs>
                       </svg>
                     </span>
-                    <span className="absolute bottom-0 right-0 z-[-1]">
+                    <span className="absolute right-0 top-0 z-[-1]">
                       <svg
-                        width="53"
-                        height="30"
-                        viewBox="0 0 53 30"
+                        width="171"
+                        height="150"
+                        viewBox="0 0 171 150"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        <circle
-                          opacity="0.8"
-                          cx="37.5"
-                          cy="37.5"
-                          r="37.5"
-                          fill="#4A6CF7"
+                        <path
+                          opacity="0.5"
+                          d="M-64.8626 -62.2633C-54.6161 -68.3514 -34.938 -62.7295 -25.5 -58.4098L8.61468 70.5977L-147.329 162.476L-169.233 71.3254C-169.667 69.4874 -171.002 63.718 -172.725 55.5589C-175.292 42.303 -179.439 22.1765 -181.883 9.68321C-184.326 -2.81009 -182.678 -10.1294 -181.708 -12.9842C-171.69 -49.7558 -74.6868 -56.0356 -64.8626 -62.2633Z"
+                          fill="url(#paint0_linear_0:1)"
                         />
-                        <mask
-                          id="mask0_111:596"
-                          style={{ maskType: "alpha" }}
-                          maskUnits="userSpaceOnUse"
-                          x="0"
-                          y="0"
-                          width="75"
-                          height="75"
-                        >
-                          <circle
-                            opacity="0.8"
-                            cx="37.5"
-                            cy="37.5"
-                            r="37.5"
-                            fill="#4A6CF7"
-                          />
-                        </mask>
-                        <g mask="url(#mask0_111:596)">
-                          <circle
-                            opacity="0.8"
-                            cx="37.5"
-                            cy="37.5"
-                            r="37.5"
-                            fill="url(#paint0_radial_111:596)"
-                          />
-                          <g opacity="0.8" filter="url(#filter0_f_111:596)">
-                            <circle
-                              cx="40.8089"
-                              cy="19.853"
-                              r="15.4412"
-                              fill="white"
-                            />
-                          </g>
-                        </g>
+                        <path
+                          opacity="0.5"
+                          d="M-55.3954 -51.9206C-47.5761 -55.4402 -31.8098 -51.3033 -23.6725 -47.9904L7.98116 74.4824L-145.585 168.289L-166.054 78.4712C-166.436 76.8468 -167.537 72.1484 -168.973 65.4785C-171.623 53.1347 -175.849 34.9782 -178.217 23.0504C-180.586 11.1227 -179.097 4.34644 -178.263 1.64307C-170.684 -28.9335 -63.0013 -34.6136 -55.3954 -51.9206Z"
+                          fill="url(#paint1_linear_0:1)"
+                        />
                         <defs>
-                          <filter
-                            id="filter0_f_111:596"
-                            x="4.36768"
-                            y="-16.5881"
-                            width="72.8823"
-                            height="72.8823"
-                            filterUnits="userSpaceOnUse"
-                            colorInterpolationFilters="sRGB"
-                          >
-                            <feFlood
-                              floodOpacity="0"
-                              result="BackgroundImageFix"
-                            />
-                            <feBlend
-                              mode="normal"
-                              in="SourceGraphic"
-                              in2="BackgroundImageFix"
-                              result="shape"
-                            />
-                            <feGaussianBlur
-                              stdDeviation="10.5"
-                              result="effect1_foregroundBlur_111:596"
-                            />
-                          </filter>
-                          <radialGradient
-                            id="paint0_radial_111:596"
-                            cx="0"
-                            cy="0"
-                            r="1"
+                          <linearGradient
+                            id="paint0_linear_0:1"
+                            x1="-58.0981"
+                            y1="-17.2445"
+                            x2="-207.967"
+                            y2="99.8211"
                             gradientUnits="userSpaceOnUse"
-                            gradientTransform="translate(37.5 37.5) rotate(90) scale(40.2574)"
                           >
-                            <stop stopOpacity="0.47" />
-                            <stop offset="1" stopOpacity="0" />
-                          </radialGradient>
+                            <stop stopColor="white" stopOpacity="0.06" />
+                            <stop
+                              offset="1"
+                              stopColor="white"
+                              stopOpacity="0"
+                            />
+                          </linearGradient>
+                          <linearGradient
+                            id="paint1_linear_0:1"
+                            x1="-55.1512"
+                            y1="7.66841"
+                            x2="-202.005"
+                            y2="100.961"
+                            gradientUnits="userSpaceOnUse"
+                          >
+                            <stop stopColor="white" stopOpacity="0.06" />
+                            <stop
+                              offset="1"
+                              stopColor="white"
+                              stopOpacity="0"
+                            />
+                          </linearGradient>
                         </defs>
                       </svg>
                     </span>
                   </div>
-
                 </div>
               </div>
+              
             </div>
           </div>
-            <Workshops workshops={events} />
         </div>
       </section>
+      <Workshops workshops={events} />
     </>
   );
 };
