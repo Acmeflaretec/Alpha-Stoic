@@ -1,0 +1,12 @@
+.text-green {
+  --tw-text-opacity: 1;
+  color: rgb(34 154 91);
+}
+.bg-primary {
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 154 91);
+}
+.hover\:bg-primary:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(39, 112, 74);
+}

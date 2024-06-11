@@ -1,0 +1,35 @@
+
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 1rem;
+  min-height: 400px;
+  word-wrap: break-word; /* Breaks long words onto the next line */
+  word-break: break-word; /* Ensures long words are broken to fit within the box */
+  width: 100%;
+  /* min-width: 300px;  */
+}
+
+.card h3, .card p, .card ul .card2{
+  word-wrap: break-word; /* Breaks long words onto the next line */
+  word-break: break-word; /* Ensures long words are broken to fit within the box */
+}
+
+/* Adjustments for responsive layout */
+@media (min-width: 768px) {
+  .card {
+    width: 32%; /* One third of the container on medium and larger screens */
+  }
+}

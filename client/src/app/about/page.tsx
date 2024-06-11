@@ -1,0 +1,31 @@
+import AboutSectionOne from "@/components/About/AboutSectionOne";
+import AboutSectionTwo from "@/components/About/AboutSectionTwo";
+import Fonter from "@/components/About/Fonter";
+import Team from "@/components/About/Team";
+import Breadcrumb from "@/components/Common/Breadcrumb";
+
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Page | Free Next.js Template for Startup and SaaS",
+  description: "This is About Page for Startup Nextjs Template",
+  // other metadata
+};
+
+const AboutPage = () => {
+  return (
+    <>
+      <Breadcrumb
+        pageName="About Page"
+        description="Empowering through personalized financial guidance, Alpha Stoic Finserve fosters security and prosperity in India's evolving financial landscape."
+      />
+      <hr />
+      <AboutSectionOne />
+      <AboutSectionTwo />
+      <Fonter />
+      <Team />
+    </>
+  );
+};
+
+export default AboutPage;
