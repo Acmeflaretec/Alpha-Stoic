@@ -10,10 +10,7 @@ dotenv.config();
 connectDB();
 
 const app = express();
-app.use(cors({
-  origin: [process.env.CLIENT,process.env.ADMIN], 
-  credentials: true,
-}));
+app.use(cors());
 
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
