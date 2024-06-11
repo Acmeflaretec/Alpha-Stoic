@@ -20,7 +20,7 @@ interface WorkshopProps {
   }[];
 }
       
-const URL='http://localhost:5000'
+const URL= process.env.NEXT_PUBLIC_URL
 
 const Workshops: React.FC<WorkshopProps> = ({ workshops }) => {
   const [currentPage, setCurrentPage] = useState(1);

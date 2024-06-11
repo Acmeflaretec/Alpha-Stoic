@@ -12,7 +12,7 @@ const BlogDetailsPage = () => {
   }, []);
 
   const fetchEvents = async () => {
-    const response = await axios.get('http://localhost:5000/events');
+    const response = await axios.get(`${process.env.NEXT_PUBLIC_URL}/events`);
     setEvents(response.data);
   };
 

@@ -1,4 +1,5 @@
 import SectionTitle from "../Common/SectionTitle";
+// import TeamMember from "./TeamMember"; 
 
 const Team = () => {
   // Sample team member data
@@ -51,8 +52,8 @@ const Team = () => {
         />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {teamMembers.map((member) => (
-            <div key={member.id} className="flex flex-col items-center bg-gray-light dark:bg-bg-color-dark p-4 rounded-lg shadow-md">
-              <img src={member.image} alt={member.name} className="mb-4 rounded-full" />
+            <div className="flex flex-col items-center bg-gray-light dark:bg-bg-color-dark" >
+              <img src={member.image} alt={member.name} className="mb-4" />
               <h3 className="text-lg font-semibold mb-2">{member.name}</h3>
               <p className="text-sm text-gray-600 mb-5">{member.position}</p>
             </div>

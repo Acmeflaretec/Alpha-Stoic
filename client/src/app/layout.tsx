@@ -26,8 +26,8 @@ export default function RootLayout({
       */}
       <head />
 
-      {/* <body className={`bg-[#FCFCFC] dark:bg-black ${inter.className}`}> */}
-      <body className={`bg-[#FCFCFC] ${myFont.className}`}>
+      <body className={`bg-[#FCFCFC] dark:bg-black ${inter.className}`}>
+      {/* <body className={`bg-[#FCFCFC] ${myFont.className}`}> */}
       <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="beforeInteractive" />
       
         <Providers>
