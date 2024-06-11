@@ -130,7 +130,7 @@ const Workshops: React.FC<WorkshopProps> = ({ workshops }) => {
                     {workshop.images.map((src, index) => (
                       <div key={index} className="relative h-48 w-full">
                         <Image
-                          src={`https://backend.alphastoic.in/uploads/${src}`}
+                          src={`${URL}/uploads/${src}`}
                           alt={workshop.eventName}
                           layout="fill"
                           objectFit="cover"
