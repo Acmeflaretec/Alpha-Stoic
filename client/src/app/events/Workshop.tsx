@@ -20,8 +20,8 @@ interface WorkshopProps {
     date: string;
   }[];
 }
-      
-const URL= process.env.NEXT_PUBLIC_URL
+
+const URL = process.env.NEXT_PUBLIC_URL
 
 const Workshops: React.FC<WorkshopProps> = ({ workshops }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -136,7 +136,12 @@ const Workshops: React.FC<WorkshopProps> = ({ workshops }) => {
                           layout="fill"
                           objectFit="cover"
                         /> */}
-                        <img src={`${URL}/uploads/${src}`} alt={workshop.eventName} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
+                        {/* <img src={`${URL}/uploads/${src}`} alt={workshop.eventName} style={{ width: '100%', height: '200px', objectFit: 'cover' }} /> */}
+                        <img
+                          src={`${URL}/uploads/${src}`}
+                          alt={workshop.eventName}
+                          style={{objectFit:"cover",width:"100%",height:"100%"}}
+                        />
                       </div>
                     ))}
                   </Carousel>
