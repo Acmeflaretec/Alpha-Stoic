@@ -1,13 +1,12 @@
 "use client"; // Ensure client-side rendering
 
 import React, { useState } from 'react';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { Pagination, Button, Modal, TextField, Box } from '@mui/material';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carousel styles
 import axios from 'axios';
 import './style.css';
-import { url } from 'inspector';
 
 interface WorkshopProps {
   workshops: {
@@ -122,7 +121,7 @@ const Workshops: React.FC<WorkshopProps> = ({ workshops }) => {
       </div>
 
       <div className="card-container">
-        {selectedWorkshops ? (
+        {selectedWorkshops.length !==0 ? (
           selectedWorkshops.map((workshop) => (
             <div key={workshop._id} className="card">
               <div className="">
@@ -175,7 +174,7 @@ const Workshops: React.FC<WorkshopProps> = ({ workshops }) => {
             </div>
           ))
         ) : (
-          <span>Events Not Organized</span>
+          <span style={{color:'red'}}>Events Not Organized</span>
         )}
       </div>
 
