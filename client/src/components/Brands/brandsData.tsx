@@ -3,28 +3,28 @@ import { Brand } from "@/types/brand";
 const brandsData: Brand[] = [
   {
     id: 6,
-    name: "Formbold",
+    name: "Zerodha",
     href: "https://kite.zerodha.com/",
     image: "/images/brands/Zerodha1.png",
     imageLight: "/images/brands/formbold-light.svg",
   },
   {
     id: 1,
-    name: "UIdeck",
+    name: "upstox",
     href: "https://upstox.com/open-demat-account/?f=FT4267",
     image: "/images/brands/upstox.png",
     imageLight: "/images/brands/uideck-light.svg",
   },
   {
     id: 2,
-    name: "Tailgrids",
+    name: "groww",
     href: "https://groww.in/",
-    image: "/images/brands/groww.png",
+    image: "/images/brands/Groww.png",
     imageLight: "/images/brands/tailgrids-light.svg",
   },
   {
     id: 3,
-    name: "Lineicons",
+    name: "5paisa",
     href: "https://www.5paisa.com/",
     image: "/images/brands/5paisa.png",
     imageLight: "/images/brands/lineicons-light.svg",
