@@ -7,6 +7,7 @@ import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carousel styles
 import axios from 'axios';
 import './style.css';
+import { url } from 'inspector';
 
 interface WorkshopProps {
   workshops: {
@@ -90,7 +91,6 @@ const Workshops: React.FC<WorkshopProps> = ({ workshops }) => {
 
   const savePaymentDetails = async (paymentResponse: any) => {
     try {
-      console.log("paymentResponse-", paymentResponse);
 
       const response = await axios.post(`${URL}/save-payment`, {
         name: formData.name,
@@ -112,6 +112,7 @@ const Workshops: React.FC<WorkshopProps> = ({ workshops }) => {
   const startIndex = (currentPage - 1) * cardsPerPage;
   const selectedWorkshops = workshops.slice(startIndex, startIndex + cardsPerPage);
 
+
   return (
     <div>
       <div className="text-center mt-5">
@@ -129,12 +130,13 @@ const Workshops: React.FC<WorkshopProps> = ({ workshops }) => {
                   <Carousel showThumbs={false} autoPlay infiniteLoop>
                     {workshop.images.map((src, index) => (
                       <div key={index} className="relative h-48 w-full">
-                        <Image
+                        {/* <Image
                           src={`${URL}/uploads/${src}`}
                           alt={workshop.eventName}
                           layout="fill"
                           objectFit="cover"
-                        />
+                        /> */}
+                        <img src={`${URL}/uploads/${src}`} alt={workshop.eventName} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
                       </div>
                     ))}
                   </Carousel>
