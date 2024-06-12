@@ -61,7 +61,7 @@ const Pricing = () => {
           <PricingBox
             packageName="Offline"
             price={"45k"}
-            subtitle="Lorem ipsum dolor sit amet adiscing elit Mauris egestas enim."
+            subtitle=""
           >
             <OfferList text="Access to offline live trading course sessions with our expert." status="active" />
             <OfferList text="8 hours/week for 8 consecutive weeks" status="active" />
@@ -72,7 +72,7 @@ const Pricing = () => {
           <PricingBox
             packageName="Hybrid"
             price={"30k"}
-            subtitle="Lorem ipsum dolor sit amet adiscing elit Mauris egestas enim."
+            subtitle=""
           >
             <OfferList text="Access to offline (4 weeks) + online (4 weeks) live trading course sessions with our expert." status="active" />
             <OfferList text="8 hours/week for 8 consecutive weeks" status="active" />
@@ -84,7 +84,7 @@ const Pricing = () => {
           <PricingBox
             packageName="Online"
             price={"15k"}
-            subtitle="Lorem ipsum dolor sit amet adiscing elit Mauris egestas enim."
+            subtitle=""
           >
             <OfferList text="Access to Online live trading course sessions with our expert." status="active" />
             <OfferList text="8 hours/week for 8 consecutive weeks." status="active" />

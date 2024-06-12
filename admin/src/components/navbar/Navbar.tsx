@@ -20,7 +20,7 @@ const Navbar = () => {
 
         <div className="user">
             <img src="/a1.png" alt="" />
-            <span>Alfa Stoic</span>
+            <span>Alpha Stoic</span>
         </div>
 
         <img src="/settings.svg" alt="" className="icon" />
