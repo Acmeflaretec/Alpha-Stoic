@@ -14,6 +14,7 @@ const ContactPage = () => {
     <>
       <Breadcrumb
         pageName="Contact Page"
+        subHead=''
         description="Connect with us for personalized financial guidance and inquiries. Reach out today for tailored wealth management solutions."
       />
 
