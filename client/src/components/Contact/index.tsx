@@ -23,14 +23,13 @@ const Contact = () => {
     e.preventDefault();
     try {
       const response = await axios.post(`${process.env.NEXT_PUBLIC_URL}/contact`, formData);
-      console.log("Form submitted successfully:", response.data);
-      // Reset form
       setFormData({
         name: "",
         email: "",
         contactNumber: "",
         message: "",
       });
+      alert('Your Submition is Successfull')
     } catch (error) {
       console.error("Error submitting form:", error);
     }
@@ -67,6 +66,7 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Enter your name"
+                        required
                         className="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
                       />
                     </div>
@@ -85,6 +85,7 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="Enter your email"
+                        required
                         className="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
                       />
                     </div>
@@ -103,6 +104,7 @@ const Contact = () => {
                         value={formData.contactNumber}
                         onChange={handleChange}
                         placeholder="Enter Your WhatsApp Number"
+                        required
                         className="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
                       />
                     </div>
@@ -121,6 +123,7 @@ const Contact = () => {
                         value={formData.message}
                         onChange={handleChange}
                         placeholder="Enter your Message"
+                        required
                         className="border-stroke w-full resize-none rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base  outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
                       ></textarea>
                     </div>

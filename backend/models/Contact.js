@@ -18,6 +18,9 @@ const contactSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    verified: {
+       type: Boolean,
+       required: true },
   },
   {
     timestamps: true,

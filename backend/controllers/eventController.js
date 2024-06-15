@@ -166,6 +166,7 @@ const handleContactForm = async (req, res) => {
       email,
       contactNumber,
       message,
+      verified:true,
     });
   
     try {
@@ -177,4 +178,42 @@ const handleContactForm = async (req, res) => {
   };
 
 
-module.exports = { getEvents, createEvent, deleteEvent, updateEvent, upload ,savePayment ,UserDetails ,updateUser , deleteUser, handleContactForm};
+  
+const  contactDetails= async (req, res) => {
+    try {
+        const users = await Contact.find().sort({ createdAt: -1 });
+        res.json(users);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+const  deleteContact  = async (req, res) => {
+    try {
+        await Contact.findByIdAndDelete(req.params.id);
+        res.json({ message: 'Contact Details deleted successfully' });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+const updateContact = async (req, res) => {
+    console.log("hello1-",req.params.id);
+    const { verified } = req.body;
+    try {
+        const user = await Contact.findById(req.params.id);
+        if (user) {
+            user.verified = verified;
+            const updatedUser = await user.save();
+            res.json(updatedUser);
+        } else {
+            res.status(404).json({ message: 'Contact Details not found' });
+        }
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+
+
+module.exports = { getEvents, createEvent, deleteEvent, updateEvent, upload ,savePayment ,UserDetails ,updateUser , deleteUser, handleContactForm, contactDetails, deleteContact,updateContact};
