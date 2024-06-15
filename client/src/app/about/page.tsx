@@ -17,6 +17,7 @@ const AboutPage = () => {
     <>
       <Breadcrumb
         pageName="About Page"
+        subHead=''
         description="Empowering through personalized financial guidance, Alpha Stoic Finserve fosters security and prosperity in India's evolving financial landscape."
       />
       <hr />
