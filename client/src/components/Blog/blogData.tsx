@@ -12,10 +12,10 @@ const blogData: Blog[] = [
   },
   {
     id: 3,
-    title: "Insurances",
+    title: "one-to-one Personal finance consultation",
     paragraph:
-      "Insurance is essential to provide financial protection and security against unforeseen risks and losses. Livelong wealth provides Life insurance, health insurance and vehicle insurance.",
-    image: "/images/blog/blog-02.jpg",
+      "Experience tailored 1-on-1 personal finance consultations to optimize your finances, set goals, manage debt, invest wisely, and build a secure financial future.",
+    image: "/images/blog/Images to update.pdf-image-003.jpg",
 
   },
   {
@@ -30,8 +30,8 @@ const blogData: Blog[] = [
     id: 1,
     title: "Guided Portfolio Management",
     paragraph:
-      "Explore elite PMS products by India's best fund managers, carefully curated for top-tier investment options",
-    image: "/images/blog/Guided Portfolio Management.jpg",
+      "Get expert guidance to optimize your investment portfolio, diversify assets, manage risk, and achieve long-term financial success.",
+    image: "/images/blog/Images to update.pdf-image-002.jpg",
     // author: {
     //   name: "Samuyl Joshi",
     //   image: "/images/blog/author-01.png",

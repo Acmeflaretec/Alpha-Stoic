@@ -31,13 +31,13 @@ const BlogDetailsPage = () => {
                 </div>
 
                 <div>
-                  <p className="mb-10 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                  <p className="mb-10 text-base font-medium leading-relaxed sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                     Alpha Stoic Finserve hosts various workshops and events, providing valuable insights and knowledge in the field of finance and investment. The company conducts sessions at schools, colleges, and organizational levels, aiming to educate and empower individuals on financial matters.
                   </p>
                   <div className="mb-10 w-full overflow-hidden rounded">
                     <div className="relative aspect-[97/60] w-full sm:aspect-[97/44]">
                       <Image
-                        src="/images/workshops/workshop_20240612_105350_0000.png"
+                        src="/images/workshops/Images to update.pdf-image-004.jpg"
                         alt="image"
                         fill
                         className="object-cover object-center"
@@ -48,11 +48,11 @@ const BlogDetailsPage = () => {
                   <h3 className="font-xl mb-10 font-bold leading-tight text-black dark:text-white sm:text-2xl sm:leading-tight lg:text-xl lg:leading-tight xl:text-2xl xl:leading-tight">
                     Personal Finance and Importance of Financial Education
                   </h3>
-                  <ul className="mb-10 list-inside list-disc text-body-color">
-                    <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
+                  <ul className="mb-10 list-inside list-disc">
+                    <li className="mb-2 text-base font-medium sm:text-lg lg:text-base xl:text-lg">
                       <strong> General public, students, working professionals </strong>
                     </li>
-                    <p className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
+                    <p className="mb-2 text-base font-medium sm:text-lg lg:text-base xl:text-lg">
                       This workshop focuses on the significance of personal finance management and the role of financial education in building a secure and prosperous future. It covers essential topics such as budgeting, savings, debt management, and long-term financial planning.
                     </p>
                   </ul>
@@ -60,11 +60,11 @@ const BlogDetailsPage = () => {
                   <h3 className="font-xl mb-10 font-bold leading-tight text-black dark:text-white sm:text-2xl sm:leading-tight lg:text-xl lg:leading-tight xl:text-2xl xl:leading-tight">
                     Stock Market Simplified: When and How to Invest?
                   </h3>
-                  <ul className="mb-10 list-inside list-disc text-body-color">
-                    <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
+                  <ul className="mb-10 list-inside list-disc">
+                    <li className="mb-2 text-base font-medium sm:text-lg lg:text-base xl:text-lg">
                       <strong> Aspiring investors, beginners in stock market investing </strong>
                     </li>
-                    <p className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
+                    <p className="mb-2 text-base font-medium sm:text-lg lg:text-base xl:text-lg">
                       This session provides a simplified approach to understanding the stock market, essential investment principles, and strategic entry points for individuals looking to start their investment journey. Topics may include stock selection, risk management, and market analysis.
                     </p>
                   </ul>
@@ -72,11 +72,11 @@ const BlogDetailsPage = () => {
                   <h3 className="font-xl mb-10 font-bold leading-tight text-black dark:text-white sm:text-2xl sm:leading-tight lg:text-xl lg:leading-tight xl:text-2xl xl:leading-tight">
                     Options and Algorithmic Trading
                   </h3>
-                  <ul className="mb-10 list-inside list-disc text-body-color">
-                    <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
+                  <ul className="mb-10 list-inside list-disc">
+                    <li className="mb-2 text-base font-medium sm:text-lg lg:text-base xl:text-lg">
                       <strong>  Investors, traders, and individuals interested in options and algorithmic trading </strong>
                     </li>
-                    <p className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
+                    <p className="mb-2 text-base font-medium sm:text-lg lg:text-base xl:text-lg">
                       This event delves into the intricacies of options trading and algorithmic strategies, offering insights on advanced trading techniques, risk mitigation, and systematic trading approaches in dynamic market conditions.
                     </p>
                   </ul>
@@ -84,20 +84,20 @@ const BlogDetailsPage = () => {
                   <h3 className="font-xl mb-10 font-bold leading-tight text-black dark:text-white sm:text-2xl sm:leading-tight lg:text-xl lg:leading-tight xl:text-2xl xl:leading-tight">
                     A-Z on Investing in Crypto and Digital Assets
                   </h3>
-                  <ul className="mb-10 list-inside list-disc text-body-color">
-                    <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
+                  <ul className="mb-10 list-inside list-disc">
+                    <li className="mb-2 text-base font-medium sm:text-lg lg:text-base xl:text-lg">
                       <strong> Crypto enthusiasts, investors exploring digital assets </strong>
                     </li>
-                    <p className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
+                    <p className="mb-2 text-base font-medium sm:text-lg lg:text-base xl:text-lg">
                       This workshop provides a comprehensive understanding of cryptocurrency investments and digital assets. It covers the fundamentals of blockchain technology, investment opportunities, risk factors, and regulatory insights in the evolving digital asset landscape.
                     </p>
                   </ul>
 
                   <div className="relative z-10 mb-10 overflow-hidden rounded-md bg-primary bg-opacity-10 p-8 md:p-9 lg:p-8 xl:p-9">
-                    <p className="text-center text-white text-base font-medium italic text-body-color mb-5">
+                    <p className="text-center text-white text-base font-medium italic mb-5">
                       These workshops and events serve as educational platforms for individuals seeking valuable knowledge, guidance, and practical insights into the world of finance and investment. Participants benefit from the expertise of Alpha Stoic&apos;s team and gain valuable perspectives on diverse financial topics.
                     </p>
-                    <p className="text-center text-white text-base font-medium italic text-body-color">
+                    <p className="text-center text-white text-base font-medium italic">
                       &quot;If you&apos;d like more details on any specific workshop or event, or if there are additional workshops to be included, feel free to let me know!&quot;
                     </p>
                     <span className="absolute left-0 top-0 z-[-1]">

@@ -4,32 +4,33 @@ import SingleTestimonial from "./SingleTestimonial";
 
 const testimonialData: Testimonial[] = [
   {
-    id: 1,
-    name: "Riya",
-    designation: "Entrepreneur",
+    id: 3,
+    name: "Ridhin M K",
+    designation: "",
     content:
-      "Alpha Stoic's unique strategies completely transformed my approach to investments, yielding substantial gains.",
+      "As a student, learning algorithmic trading transformed my financial skills. The expert guidance was invaluable, and I'm now confidently trading with impressive results.",
+    image: "/images/testimonials/a1.png",
+    star: 5,
+  },
+  {
+    id: 1,
+    name: "Dr.Sreenish T K",
+    designation: "",
+    content:
+      "Alpha Stoic Guided portfolio management’s personalized approach and community support were key to my investment success and financial growth, surpassing all market asset classes.",
     image: "/images/testimonials/a1.png",
     star: 5,
   },
   {
     id: 2,
-    name: "Amit Patel",
-    designation: "Investor",
+    name: "Goldy M Nair",
+    designation: "",
     content:
-      "The personalized guidance helped me navigate the market with confidence and achieve consistent returns.",
+      "As a long-term investor and entrepreneur, I started investing in stock markets with Alpha Stoic’s guidance.Their Automated trading system was way beyond my expectations, literally expedited my journey to financial freedom.",
     image: "/images/testimonials/a1.png",
     star: 5,
   },
-  {
-    id: 3,
-    name: "Sneha Menon",
-    designation: "Student",
-    content:
-      "Insightful workshops equipped me with valuable financial knowledge essential for my future endeavors.",
-    image: "/images/testimonials/a1.png",
-    star: 5,
-  },
+  
 ];
 
 const Testimonials = () => {
@@ -48,7 +49,7 @@ const Testimonials = () => {
           ))}
         </div>
       </div>
-      <div className="absolute right-0 top-5 z-[-1]">
+      {/* <div className="absolute right-0 top-5 z-[-1]">
         <svg
           width="238"
           height="531"
@@ -101,8 +102,8 @@ const Testimonials = () => {
             </linearGradient>
           </defs>
         </svg>
-      </div>
-      <div className="absolute bottom-5 left-0 z-[-1]">
+      </div> */}
+      {/* <div className="absolute bottom-5 left-0 z-[-1]">
         <svg
           width="279"
           height="106"
@@ -175,7 +176,7 @@ const Testimonials = () => {
             </linearGradient>
           </defs>
         </svg>
-      </div>
+      </div> */}
     </section>
   );
 };

@@ -83,7 +83,7 @@ const Pricing = () => {
           </PricingBox>
           <PricingBox
             packageName="Online"
-            price={"15k"}
+            price={"20k"}
             subtitle=""
           >
             <OfferList text="Access to Online live trading course sessions with our expert." status="active" />

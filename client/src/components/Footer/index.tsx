@@ -26,16 +26,16 @@ const Footer = () => {
                     height={30}
                   />
                 </Link>
-                <p className="mb-9 text-base leading-relaxed text-body-color dark:text-body-color-dark">
+                {/* <p className="mb-9 text-base leading-relaxed text-body-color dark:text-body-color-dark">
                   Empowering financial success, one person at a time. Join us!
-                </p>
+                </p> */}
                 <div className="flex items-center">
                   <a
                     href="https://www.facebook.com/AlphaStoicTradingHub?mibextid=ZbWKwL"
                     aria-label="social-link"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mr-6 text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                    className="mr-6 duration-300 hover:text-primary text-body-color dark:text-body-color-dark dark:hover:text-primary"
                   >
                     <svg
                       width="18"
@@ -55,7 +55,7 @@ const Footer = () => {
                     aria-label="social-link"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mr-6 text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                    className="mr-6 duration-300 hover:text-primary text-body-color dark:text-body-color-dark dark:hover:text-primary"
                   >
                     <svg
                       width="18"
@@ -72,7 +72,7 @@ const Footer = () => {
                     aria-label="social-link"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mr-6 text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                    className="mr-6 duration-300 hover:text-primary text-body-color dark:text-body-color-dark dark:hover:text-primary"
                   >
                     <svg
                       width="18"
@@ -88,7 +88,7 @@ const Footer = () => {
                     aria-label="social-link"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                    className=" duration-300 hover:text-primary text-body-color dark:text-body-color-dark dark:hover:text-primary"
                   >
                     <svg
                       width="17"
@@ -112,7 +112,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="/https://www.google.co.in/maps/search/2nd+floor,+Aysha+tower,+TB+Road,+Kanhangad,+Kerala+671315/@12.3218776,75.086056,15z/data=!3m1!4b1?entry=ttu"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-base duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       2nd floor, Aysha tower, TB Road, Kanhangad, Kerala 671315
 
@@ -121,7 +121,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="tel:9567644474"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-base duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       +91 9567644474
 
@@ -131,7 +131,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="mailto:alphastoichub@gmail.com"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-base duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       alphastoichub@gmail.com
 
@@ -150,7 +150,7 @@ const Footer = () => {
                   <li>
                     <Link
                       href="/wealth-management"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-base duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Wealth Management
                     </Link>
@@ -158,7 +158,7 @@ const Footer = () => {
                   <li>
                     <Link
                       href="/course"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-base duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Courses
                     </Link>
@@ -166,7 +166,7 @@ const Footer = () => {
                   <li>
                     <Link
                       href="/events"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-base duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Workshops and Events
                     </Link>
@@ -184,7 +184,7 @@ const Footer = () => {
                   <li>
                     <Link
                       href="/about"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-base duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       About
                     </Link>
@@ -192,7 +192,7 @@ const Footer = () => {
                   <li>
                     <Link
                       href="/privacy-policy"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-base duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Privacy Policy
                     </Link>
@@ -200,7 +200,7 @@ const Footer = () => {
                   <li>
                     <Link
                       href="/privacy-policy"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-base duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       T&C
                     </Link>
@@ -214,7 +214,7 @@ const Footer = () => {
 
           <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D2D8E183] to-transparent dark:via-[#959CB183]"></div>
           <div className="py-8">
-            <p className="text-center text-base text-body-color dark:text-white">
+            <p className="text-center text-base dark:text-white">
             All Rights Reserved By{" "}
               <a
                 href=""

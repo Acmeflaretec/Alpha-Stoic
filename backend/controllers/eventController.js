@@ -2,6 +2,7 @@ const Event = require('../models/Event');
 const multer = require('multer');
 const path = require('path');
 const Payment = require('../models/payment')
+const Contact = require('../models/Contact');
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'uploads/');
@@ -132,7 +133,6 @@ const UserDetails = async (req, res) => {
 };
 
 const deleteUser = async (req, res) => {
-    console.log("hello-",req.params.id);
     try {
         await Payment.findByIdAndDelete(req.params.id);
         res.json({ message: 'User deleted successfully' });
@@ -158,5 +158,23 @@ const updateUser = async (req, res) => {
     }
 };
 
+const handleContactForm = async (req, res) => {
+    const { name, email, contactNumber, message } = req.body;
+  
+    const contact = new Contact({
+      name,
+      email,
+      contactNumber,
+      message,
+    });
+  
+    try {
+      const newContact = await contact.save();
+      res.status(201).json(newContact);
+    } catch (error) {
+      res.status(400).json({ message: error.message });
+    }
+  };
 
-module.exports = { getEvents, createEvent, deleteEvent, updateEvent, upload ,savePayment ,UserDetails ,updateUser , deleteUser};
+
+module.exports = { getEvents, createEvent, deleteEvent, updateEvent, upload ,savePayment ,UserDetails ,updateUser , deleteUser, handleContactForm};
