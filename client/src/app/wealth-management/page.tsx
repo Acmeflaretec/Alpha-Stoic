@@ -15,6 +15,7 @@ const Blog = () => {
     <>
       <Breadcrumb
         pageName="Wealth Management"
+        subHead=""
         description="At Alpha Stoic Finserve, we understand that smart wealth management is pivotal for securing a prosperous financial future. Our comprehensive suite of wealth management services is designed to empower individuals with the knowledge and tools needed for making informed financial decisions. Whether you are an experienced investor or looking to embark on your investment journey, our dedicated professionals are committed to providing personalized support and strategic guidance tailored to your unique financial aspirations."
       />
 

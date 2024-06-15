@@ -3,19 +3,39 @@ import { useState } from "react";
 import SectionTitle from "../Common/SectionTitle";
 import OfferList from "./OfferList";
 import PricingBox from "./PricingBox";
+import Breadcrumb from "@/components/Common/Breadcrumb";
+import Image from "next/image";
 
 const Pricing = () => {
   const [isMonthly, setIsMonthly] = useState(true);
 
   return (
-    <section id="pricing" className="relative z-10 py-10 md:py-12 lg:py-15">
+    <section id="pricing" className="relative z-10 ">
       <div className="container">
-        <SectionTitle
-          title="Courses"
-          paragraph="Systematic Algorithmic Trading Blueprint"
+        {/* <SectionTitle
+          title="Community"
+          paragraph=""
           center
           width="665px"
+        /> */}
+        <Breadcrumb
+          pageName="Community"
+          subHead="Alpha Stoic premium Community membership"
+          description="Join the Alpha Stoic community to build sustainable, long-term wealth securely. Gain exclusive 
+access to expert insights, market strategies, and real-time support tailored to elevate your 
+financial journey.
+"
         />
+        <div className="mb-10 w-full overflow-hidden rounded">
+          <div className="relative aspect-[97/60] w-full sm:aspect-[97/44]">
+            <Image
+              src="/images/community/Images to update.pdf-image-005.jpg"
+              alt="image"
+              fill
+              className="object-cover object-center"
+            />
+          </div>
+        </div>
 
         {/* <div className="w-full">
           <div className="mb-8 flex justify-center md:mb-12 lg:mb-16">
@@ -57,41 +77,34 @@ const Pricing = () => {
           </div>
         </div> */}
 
-        <div className="grid grid-cols-1 gap-x-8 mt-10 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-2">
           <PricingBox
-            packageName="Offline"
-            price={"45k"}
-            subtitle=""
+            packageName="Indian Stock Market Community"
+            price={"1999"}
+            subtitle="Join our premium Indian stock market community for a comprehensive trading experience. Gain 
+exclusive insights and real-time support to elevate your market strategies"
           >
-            <OfferList text="Access to offline live trading course sessions with our expert." status="active" />
-            <OfferList text="8 hours/week for 8 consecutive weeks" status="active" />
-            <OfferList text="Expiry day live trading sessions at the office." status="active" />
-            <OfferList text="Exclusive access to 10 Proven and tested systems (Positional, Intraday, Expiry systems, etc)" status="active" />
-            <OfferList text="One-year Alpha Stoic Community Membership (Premium)" status="active" />
+            <OfferList text="Rs.1999/- for 6 months" status="active" />
+            <OfferList text="Detailed market data" status="active" />
+            <OfferList text="In-depth equity analysis" status="active" />
+            <OfferList text="Timely entry and exit strategies" status="active" />
+            <OfferList text="Real-time market timing support" status="active" />
+            <OfferList text="Expert insights and updates" status="active" />
           </PricingBox>
           <PricingBox
-            packageName="Hybrid"
-            price={"30k"}
-            subtitle=""
+            packageName="Crypto and Digital Asset Community"
+            price={"6999"}
+            subtitle="Become a part of our elite crypto and digital asset community. Get unparalleled support and 
+information to optimize your digital investments."
           >
-            <OfferList text="Access to offline (4 weeks) + online (4 weeks) live trading course sessions with our expert." status="active" />
-            <OfferList text="8 hours/week for 8 consecutive weeks" status="active" />
-            <OfferList text="Expiry day live trading sessions at the office." status="active" />
-            <OfferList text="Exclusive access to 10 Proven and tested systems (Positional, Intraday, Expiry systems, etc)" status="active" />
-            <OfferList text="One-year Alpha Stoic Community Membership (Premium)" status="active" />
-            {/* <OfferList text="Free Lifetime Updates" status="inactive" /> */}
+            <OfferList text="Rs.6999/- for 6 months)" status="active" />
+            <OfferList text="Entry and exit points guidance" status="active" />
+            <OfferList text="Detailed technical analysis" status="active" />
+            <OfferList text="Updates on crypto, NFTs, and more" status="active" />
+            <OfferList text="Expert support and advice" status="active" />
+            <OfferList text="Comprehensive market insights" status="active" />
           </PricingBox>
-          <PricingBox
-            packageName="Online"
-            price={"20k"}
-            subtitle=""
-          >
-            <OfferList text="Access to Online live trading course sessions with our expert." status="active" />
-            <OfferList text="8 hours/week for 8 consecutive weeks." status="active" />
-            <OfferList text="Expiry day online trading sessions with the team." status="active" />
-            <OfferList text="Exclusive access to 10 Proven and tested systems (Positional, Intraday, Expiry systems, etc)" status="active" />
-            <OfferList text="6 months Alpha Stoic Community Membership (Premium)" status="active" />
-          </PricingBox>
+
         </div>
       </div>
 

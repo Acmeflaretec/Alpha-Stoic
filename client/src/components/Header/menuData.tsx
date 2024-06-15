@@ -40,6 +40,13 @@ const menuData: Menu[] = [
       },
       {
         id: 45,
+        title: "Community",
+        // path: "/blog-sidebar",
+        path: "/community",
+        newTab: false,
+      },
+      {
+        id: 46,
         title: "Workshops and Events",
         path: "/events",
         newTab: false,

@@ -2,9 +2,11 @@ import Link from "next/link";
 
 const Breadcrumb = ({
   pageName,
+  subHead,
   description,
 }: {
   pageName: string;
+  subHead: string;
   description: string;
 }) => {
   return (
@@ -17,6 +19,9 @@ const Breadcrumb = ({
                 <h1 className="mb-5 text-2xl font-bold text-black dark:text-white sm:text-3xl">
                   {pageName}
                 </h1>
+                <h4 className="mb-5 text-1xl font-bold text-black dark:text-white">
+                  {subHead}
+                </h4>
                 <p className="text-base font-medium leading-relaxed">
                   {description}
                 </p>
@@ -34,7 +39,7 @@ const Breadcrumb = ({
                     </Link>
                     <span className="mr-3 block h-2 w-2 rotate-45 border-r-2 border-t-2 border-body-color"></span>
                   </li>
-                  <li className="text-base font-medium">
+                  <li className="text-base font-medium" style={{color:"#3EB449"}}>
                     {pageName}
                   </li>
                 </ul>
@@ -43,7 +48,7 @@ const Breadcrumb = ({
           </div>
         </div>
 
-        <div>
+        {/* <div>
           <span className="absolute left-0 top-0 z-[-1]">
             <svg
               width="287"
@@ -116,7 +121,7 @@ const Breadcrumb = ({
               </defs>
             </svg>
           </span>
-        </div>
+        </div> */}
       </section>
     </>
   );

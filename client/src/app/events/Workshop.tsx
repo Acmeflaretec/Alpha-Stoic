@@ -121,7 +121,7 @@ const Workshops: React.FC<WorkshopProps> = ({ workshops }) => {
       </div>
 
       <div className="card-container">
-        {selectedWorkshops.length !==0 ? (
+        {selectedWorkshops.length !== 0 ? (
           selectedWorkshops.map((workshop) => (
             <div key={workshop._id} className="card">
               <div className="">
@@ -139,7 +139,7 @@ const Workshops: React.FC<WorkshopProps> = ({ workshops }) => {
                         <img
                           src={`${URL}/uploads/${src}`}
                           alt={workshop.eventName}
-                          style={{objectFit:"cover",width:"100%",height:"100%"}}
+                          style={{ objectFit: "cover", width: "100%", height: "100%" }}
                         />
                       </div>
                     ))}
@@ -174,7 +174,7 @@ const Workshops: React.FC<WorkshopProps> = ({ workshops }) => {
             </div>
           ))
         ) : (
-          <span style={{color:'red'}}>Events Not Organized</span>
+          <span style={{ color: 'red' }}>Events Not Organized</span>
         )}
       </div>
 

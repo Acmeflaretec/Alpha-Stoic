@@ -8,10 +8,10 @@ const Contact = () => {
   
 
   const columns: GridColDef[] = [
-    { field: "_id", headerName: "ID", width: 90 },
-    { field: "name", type: "string", headerName: "Name", width: 150 },
-    { field: "email", type: "string", headerName: "Email", width: 200 },
-    { field: "contactNumber", type: "string", headerName: "Phone", width: 150 },
+    { field: "_id", headerName: "ID", width: 120 },
+    { field: "name", type: "string", headerName: "Name", width: 300 },
+    { field: "email", type: "string", headerName: "Email", width: 300 },
+    { field: "contactNumber", type: "string", headerName: "Phone", width: 200 },
     { field: "verified", headerName: "Verified", width: 150, type: "boolean" },
   ];
 
