@@ -30,7 +30,7 @@ const NewsLatterBox = () => {
           type="submit"
           value="Subscribe"
           disabled
-          className="mb-10 flex w-full cursor-pointer items-center justify-center rounded-sm bg-primary px-9 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-success/70 dark:shadow-submit-dark"
+          className="mb-10 flex w-full cursor-pointer items-center justify-center rounded-sm px-9 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-success/70 dark:shadow-submit-dark" style={{backgroundColor:'#3EB449'}}
         />
         <p className="text-center mb-10 text-base leading-relaxed dark:text-body-color-dark">
           No spam guaranteed, So please don’t send any spam mail.

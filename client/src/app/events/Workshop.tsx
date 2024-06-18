@@ -81,7 +81,7 @@ const Workshops: React.FC<WorkshopProps> = ({ workshops }) => {
         workshop_id: selectedWorkshop._id
       },
       theme: {
-        color: '#38b74a'
+        color: '#3EB449'
       }
     };
     const rzp = new (window as any).Razorpay(options);
@@ -161,7 +161,7 @@ const Workshops: React.FC<WorkshopProps> = ({ workshops }) => {
               </div>
               <div className='container mb-5'>
                 <Button
-                  style={{ backgroundColor: 'green' }}
+                  style={{backgroundColor:'#3EB449'}}
                   variant="contained"
                   color="success"
                   fullWidth

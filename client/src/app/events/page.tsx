@@ -93,7 +93,7 @@ const BlogDetailsPage = () => {
                     </p>
                   </ul>
 
-                  <div className="relative z-10 mb-10 overflow-hidden rounded-md bg-primary bg-opacity-10 p-8 md:p-9 lg:p-8 xl:p-9">
+                  <div className="relative z-10 mb-10 overflow-hidden rounded-md bg-opacity-10 p-8 md:p-9 lg:p-8 xl:p-9" style={{backgroundColor:'#3EB449'}}>
                     <p className="text-center text-white text-base font-medium italic mb-5">
                       These workshops and events serve as educational platforms for individuals seeking valuable knowledge, guidance, and practical insights into the world of finance and investment. Participants benefit from the expertise of Alpha Stoic&apos;s team and gain valuable perspectives on diverse financial topics.
                     </p>
