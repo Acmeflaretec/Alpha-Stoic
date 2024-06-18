@@ -11,6 +11,7 @@ import UserDetail from "./pages/userDetail/UserDetail";
 import ProductDetail from "./pages/productDetail/ProductDetail";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Contact from "./pages/contact/Contact";
+import Community from "./pages/community/Community";
 
 function App() {
   const queryClient = new QueryClient();
@@ -65,6 +66,10 @@ function App() {
         {
           path: "/contacts",
           element: <Contact />,
+        },
+        {
+          path: "/community",
+          element: <Community />,
         },
       ],
     },

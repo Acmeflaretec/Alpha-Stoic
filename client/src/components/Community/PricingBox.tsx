@@ -71,7 +71,7 @@ const PricingBox = (props: {
   const savePaymentDetails = async (paymentResponse: any) => {
     try {
 
-      const response = await axios.post(`${URL}/save-payment`, {
+      const response = await axios.post(`${URL}/community`, {
         name: formData.name,
         email: formData.email,
         contactNumber: formData.contactNumber,

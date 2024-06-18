@@ -3,6 +3,7 @@ const multer = require('multer');
 const path = require('path');
 const Payment = require('../models/payment')
 const Contact = require('../models/Contact');
+const Community = require('../models/community');
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'uploads/');
@@ -216,4 +217,60 @@ const updateContact = async (req, res) => {
 
 
 
-module.exports = { getEvents, createEvent, deleteEvent, updateEvent, upload ,savePayment ,UserDetails ,updateUser , deleteUser, handleContactForm, contactDetails, deleteContact,updateContact};
+const saveCommunity = async (req, res) => {
+    try {
+    const { name, email, contactNumber, price, eventName, paymentId } = req.body;
+    
+    const payment = new Community({
+        name,
+        email,
+        contactNumber,
+        price,
+        eventName,
+        paymentId,
+        verified:true,
+        });
+    
+        const newPayment = await payment.save();
+        res.status(201).json(newPayment);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+};
+
+const communityDetails = async (req, res) => {
+    try {
+        const users = await Community.find().sort({ createdAt: -1 });
+        res.json(users);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+const deleteCommunity = async (req, res) => {
+    try {
+        await Community.findByIdAndDelete(req.params.id);
+        res.json({ message: 'User deleted successfully' });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+const updateCommunity = async (req, res) => {
+    const { verified } = req.body;
+    try {
+        const user = await Community.findById(req.params.id);
+        if (user) {
+            user.verified = verified;
+            const updatedUser = await user.save();
+            res.json(updatedUser);
+        } else {
+            res.status(404).json({ message: 'User not found' });
+        }
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+
+module.exports = { getEvents, createEvent, deleteEvent, updateEvent, upload ,savePayment ,UserDetails ,updateUser , deleteUser, handleContactForm, contactDetails, deleteContact,updateContact ,saveCommunity,communityDetails,deleteCommunity,updateCommunity};
