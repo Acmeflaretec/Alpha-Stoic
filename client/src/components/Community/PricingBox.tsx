@@ -1,7 +1,7 @@
 "use client"; // Ensure client-side rendering
 
 import React, { useState } from 'react';
-import {Button, Modal, TextField, Box } from '@mui/material';
+import { Button, Modal, TextField, Box } from '@mui/material';
 import axios from 'axios';
 
 const URL = process.env.NEXT_PUBLIC_URL
@@ -47,7 +47,7 @@ const PricingBox = (props: {
       key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
       amount: selectedWorkshop * 100,
       currency: 'INR',
-      name: selectedWorkshop === '1999'? 'Indian Stock Market Community': 'Crypto and Digital Asset Community',
+      name: selectedWorkshop === '1999' ? 'Indian Stock Market Community' : 'Crypto and Digital Asset Community',
       description: 'Workshop Enrollment',
       image: '/images/logo/alphastoic logo_page-0003.jpg',
       handler: function (response: any) {
@@ -76,7 +76,7 @@ const PricingBox = (props: {
         email: formData.email,
         contactNumber: formData.contactNumber,
         price: selectedWorkshop,
-        eventName: selectedWorkshop === '1999'? 'Indian Stock Market Community': 'Crypto and Digital Asset Community',
+        eventName: selectedWorkshop === '1999' ? 'Indian Stock Market Community' : 'Crypto and Digital Asset Community',
         paymentId: paymentResponse.razorpay_payment_id
       });
       if (response.status !== 201) {
@@ -88,26 +88,25 @@ const PricingBox = (props: {
   };
 
   return (
-    <div className="w-full">
-      <div className="relative z-10 rounded-sm bg-white px-8 py-10 shadow-three hover:shadow-one dark:bg-gray-dark dark:shadow-two dark:hover:shadow-gray-dark">
-        <div className="flex items-center justify-center">
-          <div className="price mb-2 text-[50px]  text-black dark:text-white text-center">
-            ₹<span className="amount font-bold">{price}</span>
+    <div className="flex flex-col relative z-10 rounded-lg bg-white px-8 py-10 shadow-three hover:shadow-one dark:bg-gray-dark dark:shadow-two dark:hover:shadow-gray-dark">
+      <div className="flex items-center justify-center">
+        <div className="price mb-2 text-[50px]  text-black dark:text-white text-center">
+          ₹<span className="amount font-medium">{price}</span>
 
-            <div className="mb-2 text-xl font-bold text-dark dark:text-white" style={{ color: "#3EB449" }}>
-              {packageName}
-            </div>
-            <p className=" text-base">{subtitle}</p>
+          <div className="mb-2 text-xl font-medium text-dark dark:text-white" style={{ color: "#3EB449" }}>
+            {packageName}
           </div>
+          <p className=" text-base">{subtitle}</p>
         </div>
-        <div className="mb-8 border-b border-body-color border-opacity-10 pb-8 dark:border-white dark:border-opacity-10">
+      </div>
+      <div className="mb-8 border-b border-body-color border-opacity-10 pb-8 dark:border-white dark:border-opacity-10">
 
-        </div>
-        <div className="mb-10">{children}</div>
-        <button className="flex w-full items-center justify-center rounded-sm p-3 text-base font-semibold text-white transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp" style={{ backgroundColor: "#3EB449" }} onClick={() => handleEnrollClick(price)}>
-          Enroll
-        </button>
-        <div className="absolute bottom-0 right-0 z-[-1]">
+      </div>
+      <div className="mb-10">{children}</div>
+      <button className="mt-auto flex w-full items-center justify-center rounded-sm p-3 text-base font-semibold text-white transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp" style={{ backgroundColor: "#3EB449" }} onClick={() => handleEnrollClick(price)}>
+        Enroll Now
+      </button>
+      {/* <div className="absolute bottom-0 right-0 z-[-1]">
           <svg
             width="179"
             height="158"
@@ -150,9 +149,7 @@ const PricingBox = (props: {
               </linearGradient>
             </defs>
           </svg>
-        </div>
-      </div>
-
+        </div> */}
 
       <Modal
         open={openModal}
@@ -162,7 +159,7 @@ const PricingBox = (props: {
       >
         <Box sx={{ ...modalStyle }}>
           <h2 id="enroll-modal-title">Enroll for</h2>
-          <h3 style={{ wordWrap: 'break-word', wordBreak: 'break-word' }}>{selectedWorkshop === '1999'? 'Indian Stock Market Community': 'Crypto and Digital Asset Community'}</h3>
+          <h3 style={{ wordWrap: 'break-word', wordBreak: 'break-word' }}>{selectedWorkshop === '1999' ? 'Indian Stock Market Community' : 'Crypto and Digital Asset Community'}</h3>
           <TextField
             label="Name"
             name="name"
@@ -197,7 +194,7 @@ const PricingBox = (props: {
       </Modal>
     </div>
 
-    
+
   );
 };
 

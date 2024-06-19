@@ -25,7 +25,7 @@ const Blog = () => {
             {blogData.map((blog) => (
               <div
                 key={blog.id}
-                className="w-full px-4 md:w-1/2 lg:w-1/4 xl:w-1/4"
+                className="w-full px-4 md:w-1/2 lg:w-1/4 xl:w-1/4 py-5"
               >
                 <SingleBlog blog={blog} />
               </div>

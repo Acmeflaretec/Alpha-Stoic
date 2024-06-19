@@ -7,7 +7,7 @@ const Fonter = () => {
     <hr />
     <section id="fonter" className="bg-gray-light dark:bg-bg-color-dark pt-16 md:pt-20 lg:pt-28">
       <div className="container">
-      <h3 className="mb-10 text-center text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
+      <h3 className="mb-10 text-center text-xl text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
           Founders Profile
 
                 </h3>

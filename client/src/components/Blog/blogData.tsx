@@ -12,7 +12,7 @@ const blogData: Blog[] = [
   },
   {
     id: 3,
-    title: "one-to-one Personal finance consultation",
+    title: "One-to-One Personal finance consultation",
     paragraph:
       "Experience tailored 1-on-1 personal finance consultations to optimize your finances, set goals, manage debt, invest wisely, and build a secure financial future.",
     image: "/images/blog/Images to update.pdf-image-003.jpg",

@@ -5,7 +5,7 @@ const SingleBlog = ({ blog }: { blog: Blog }) => {
   const { title, image, paragraph} = blog;
   return (
     <>
-      <div className="group relative overflow-hidden rounded-sm bg-white shadow-one duration-300 hover:shadow-two dark:bg-dark dark:hover:shadow-gray-dark">
+      <div className="group relative overflow-hidden rounded-md bg-white shadow-one duration-300 hover:shadow-two dark:bg-dark dark:hover:shadow-gray-dark h-full">
         <div
           className="relative block aspect-[37/22] w-full"
         >
@@ -18,12 +18,12 @@ const SingleBlog = ({ blog }: { blog: Blog }) => {
           <h3>
             <div
               
-              className="mb-4 border-b border-body-color border-opacity-10 block text-xl font-bold text-black  dark:text-white dark:hover:text-primary sm:text-2xl"
+              className="mb-4 border-b border-body-color border-opacity-10 block text-xl text-black  dark:text-white dark:hover:text-primary sm:text-2xl"
             >
               {title}
             </div>
           </h3>
-          <p className="mb-6  pb-6 text-base font-medium dark:border-white dark:border-opacity-10">
+          <p className="mb-6 text-base dark:border-white dark:border-opacity-10">
             {paragraph}
           </p>
           {/* <div className="flex items-center">

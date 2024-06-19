@@ -26,7 +26,7 @@ access to expert insights, market strategies, and real-time support tailored to 
 financial journey.
 "
         />
-        <div className="mb-10 w-full overflow-hidden rounded">
+        <div className="mb-10 w-full overflow-hidden rounded-lg">
           <div className="relative aspect-[97/60] w-full sm:aspect-[97/44]">
             <Image
               src="/images/community/Images to update.pdf-image-005.jpg"
