@@ -106,6 +106,23 @@ const Workshops: React.FC<WorkshopProps> = ({ workshops }) => {
       console.error('Error saving payment details:', error);
     }
   };
+  const handleSave = async () => {
+    try {
+      const response = await axios.post(`${URL}/save-payment`, {
+        name: formData.name,
+        email: formData.email,
+        contactNumber: formData.contactNumber,
+        price: selectedWorkshop.price,
+        eventName: selectedWorkshop.eventName,
+        paymentId: "N/A"
+      });
+      if (response.status !== 201) {
+        throw new Error('Failed to save details');
+      }
+    } catch (error) {
+      console.error('Error saving details:', error);
+    }
+  };
 
   const totalPages = Math.ceil(workshops.length / cardsPerPage);
   const startIndex = (currentPage - 1) * cardsPerPage;
@@ -147,7 +164,8 @@ const Workshops: React.FC<WorkshopProps> = ({ workshops }) => {
                 </div>
                 <div className="p-4">
                   <div className="mb-2" style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <h3 className="text-l font-bold">₹{workshop.price}</h3>
+                    {workshop?.price ? <h3 className="text-l font-bold">₹{workshop.price}</h3>
+                      : <h3 className="text-l font-bold bg-green-100 text-green-500">&nbsp; FREE &nbsp;</h3>}
                     <h3 className="text-l font-bold">{workshop.date}</h3>
                   </div>
                   <h3 className="text-xl font-bold mb-2">{workshop.eventName}</h3>
@@ -161,7 +179,7 @@ const Workshops: React.FC<WorkshopProps> = ({ workshops }) => {
               </div>
               <div className='container mb-5'>
                 <Button
-                  style={{backgroundColor:'#3EB449'}}
+                  style={{ backgroundColor: '#3EB449' }}
                   variant="contained"
                   color="success"
                   fullWidth
@@ -222,9 +240,11 @@ const Workshops: React.FC<WorkshopProps> = ({ workshops }) => {
             margin="normal"
             required
           />
-          <Button style={{ backgroundColor: 'green' }} variant="contained" color="success" fullWidth className="mt-4" onClick={handleSubmit}>
-            Pay with Razorpay
-          </Button>
+          {selectedWorkshop?.price ?
+            <Button style={{ backgroundColor: 'green' }} variant="contained" color="success" fullWidth className="mt-4" onClick={handleSubmit}>
+              Pay with Razorpay
+            </Button>
+            : <Button style={{ backgroundColor: 'green' }} variant="contained" color="success" fullWidth className="mt-4" onClick={handleSave}>Register</Button>}
         </Box>
       </Modal>
     </div>
