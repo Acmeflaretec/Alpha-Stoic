@@ -118,6 +118,9 @@ const Workshops: React.FC<WorkshopProps> = ({ workshops }) => {
       });
       if (response.status !== 201) {
         throw new Error('Failed to save details');
+      }else{
+        alert("Registeration Successful");
+        handleCloseModal();
       }
     } catch (error) {
       console.error('Error saving details:', error);
