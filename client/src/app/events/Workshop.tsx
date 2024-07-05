@@ -133,7 +133,7 @@ const Workshops: React.FC<WorkshopProps> = ({ workshops }) => {
 
 
   return (
-    <div>
+    <div  className="pt-[150px]">
       <div className="text-center mt-5">
         <h2 className="mb-8 text-3xl leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight">
           Upcoming workshops

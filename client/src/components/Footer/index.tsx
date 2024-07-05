@@ -199,6 +199,14 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
+                      href="/cancellation-and-Refund-Policy"
+                      className="mb-4 inline-block text-base duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                    >
+                      Cancellations
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
                       href="/privacy-policy"
                       className="mb-4 inline-block text-base duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
