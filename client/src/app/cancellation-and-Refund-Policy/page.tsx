@@ -43,7 +43,7 @@ If your request is approved, a full refund will be processed within 30 days to t
             </p>
             <h5>Contact Us
             </h5>
-            <p>For any inquiries or concerns regarding our refund policy, please don't hesitate to contact our customer support team at <a href='mailto:alphastoichub@gmail.com'>alphastoichub@gmail.com</a> or by phone at <a href="tel:9567508882">+91 9567508882</a>.
+            <p>For any inquiries or concerns regarding our refund policy, please don't hesitate to contact our customer support team at <a href="mailto:alphastoichub@gmail.com">alphastoichub@gmail.com</a> or by phone at <a href="tel:9567508882">+91 9567508882</a>.
             </p>
             <h5>Policy Updates
             </h5>
