@@ -29,7 +29,7 @@ const Cancellation = () => {
             <h4>Cancellation by Alphastoic</h4>
             <p>In the rare instance that Alphastoic cancels a service or cannot fulfill its service agreement, all enrolled participants will receive a full refund.</p>
             <h5>Contact Us</h5>
-            <p>For any inquiries or concerns regarding our refund policy, please don't hesitate to contact our customer support team at <a href="mailto:alphastoichub@gmail.com">alphastoichub@gmail.com</a> or by phone at <a href="tel:9567508882">+91 9567508882</a></p>
+            <p>For any inquiries or concerns regarding our refund policy, please don&#39;t hesitate to contact our customer support team at <a href="mailto:alphastoichub@gmail.com">alphastoichub@gmail.com</a> or by phone at <a href="tel:9567508882">+91 9567508882</a></p>
             <h5>Policy Updates</h5>
             <p>Alphastoic reserves the right to update this refund policy periodically. We will ensure enrolled participants are notified of any changes via email. By enrolling in our services, you acknowledge that you have read and agree to the terms outlined in this refund policy.</p>
         </div>
