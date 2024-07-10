@@ -207,10 +207,11 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="/privacy-policy"
+                      href="/Terms-and-Conditions"
                       className="mb-4 inline-block text-base duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      T&C
+                      Terms and Conditions
+
                     </Link>
                   </li>
                 </ul>
@@ -230,7 +231,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="hover:text-primary"
               >
-                Alpha Stoic Finserve.
+                Alpha Stoic Education Hub.
 
               </a>{" "}
               Designed By{" "}
