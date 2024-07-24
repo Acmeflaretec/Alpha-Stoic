@@ -5,8 +5,9 @@ import React, { useState } from 'react';
 import { Pagination, Button, Modal, TextField, Box } from '@mui/material';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carousel styles
-import axios from 'axios';
 import './style.css';
+import Link from 'next/link';
+import dayjs from 'dayjs';
 
 interface WorkshopProps {
   workshops: {
@@ -19,14 +20,9 @@ interface WorkshopProps {
     date: string;
   }[];
 }
-
-const URL = process.env.NEXT_PUBLIC_URL
-
 const Workshops: React.FC<WorkshopProps> = ({ workshops }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [openModal, setOpenModal] = useState(false);
-  const [selectedWorkshop, setSelectedWorkshop] = useState<any>(null);
-  const [formData, setFormData] = useState({ name: '', email: '', contactNumber: '' });
+  
 
   const cardsPerPage = 9;
   const maxFeatures = 6;
@@ -35,105 +31,19 @@ const Workshops: React.FC<WorkshopProps> = ({ workshops }) => {
     setCurrentPage(pageNumber);
   };
 
-  const handleEnrollClick = (workshop: any) => {
-    setSelectedWorkshop(workshop);
-    setOpenModal(true);
-  };
+  
 
-  const handleCloseModal = () => {
-    setOpenModal(false);
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData(prevData => ({ ...prevData, [name]: value }));
-  };
-
-  const handleSubmit = () => {
-    if (formData.name && formData.email && formData.contactNumber) {
-      {
-        openRazorpay();
-      }
-    } else {
-      alert("Please fill in all required fields.");
-    }
-  };
-
-  const openRazorpay = () => {
-    const options = {
-      key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
-      amount: selectedWorkshop.price * 100,
-      currency: 'INR',
-      name: selectedWorkshop.eventName,
-      description: 'Workshop Enrollment',
-      image: '/images/logo/alphastoic logo_page-0003.jpg',
-      handler: function (response: any) {
-        alert("Payment Successful");
-        savePaymentDetails(response);
-        handleCloseModal();
-      },
-      prefill: {
-        name: formData.name,
-        email: formData.email,
-        contact: formData.contactNumber
-      },
-      notes: {
-        workshop_id: selectedWorkshop._id
-      },
-      theme: {
-        color: '#3EB449'
-      }
-    };
-    const rzp = new (window as any).Razorpay(options);
-    rzp.open();
-  };
-
-  const savePaymentDetails = async (paymentResponse: any) => {
-    try {
-
-      const response = await axios.post(`${URL}/save-payment`, {
-        name: formData.name,
-        email: formData.email,
-        contactNumber: formData.contactNumber,
-        price: selectedWorkshop.price,
-        eventName: selectedWorkshop.eventName,
-        paymentId: paymentResponse.razorpay_payment_id
-      });
-      if (response.status !== 201) {
-        throw new Error('Failed to save payment details');
-      }
-    } catch (error) {
-      console.error('Error saving payment details:', error);
-    }
-  };
-  const handleSave = async () => {
-    try {
-      const response = await axios.post(`${URL}/save-payment`, {
-        name: formData.name,
-        email: formData.email,
-        contactNumber: formData.contactNumber,
-        price: selectedWorkshop.price,
-        eventName: selectedWorkshop.eventName,
-        paymentId: "N/A"
-      });
-      if (response.status !== 201) {
-        throw new Error('Failed to save details');
-      }else{
-        alert("Registeration Successful");
-        handleCloseModal();
-      }
-    } catch (error) {
-      console.error('Error saving details:', error);
-    }
-  };
+  
 
   const totalPages = Math.ceil(workshops.length / cardsPerPage);
   const startIndex = (currentPage - 1) * cardsPerPage;
   const selectedWorkshops = workshops.slice(startIndex, startIndex + cardsPerPage);
 
-
+  const formatDate = (dateString: string) => {
+    return dayjs(dateString).format('DD/MM/YYYY');
+  };
   return (
-    <div  className="pt-[150px]">
+    <div className="pt-[150px]">
       <div className="text-center mt-5">
         <h2 className="mb-8 text-3xl leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight">
           Upcoming workshops
@@ -169,7 +79,7 @@ const Workshops: React.FC<WorkshopProps> = ({ workshops }) => {
                   <div className="mb-2" style={{ display: 'flex', justifyContent: 'space-between' }}>
                     {workshop?.price ? <h3 className="text-l font-bold">₹{workshop.price}</h3>
                       : <h3 className="text-l font-bold bg-green-100 text-green-500">&nbsp; FREE &nbsp;</h3>}
-                    <h3 className="text-l font-bold">{workshop.date}</h3>
+                    <h3 className="text-l font-bold">{formatDate(workshop.date)}</h3>
                   </div>
                   <h3 className="text-xl font-bold mb-2">{workshop.eventName}</h3>
                   <p className="text-gray-700 mb-4">{workshop.text}</p>
@@ -181,16 +91,19 @@ const Workshops: React.FC<WorkshopProps> = ({ workshops }) => {
                 </div>
               </div>
               <div className='container mb-5'>
-                <Button
-                  style={{ backgroundColor: '#3EB449' }}
-                  variant="contained"
-                  color="success"
-                  fullWidth
-                  className="mt-4"
-                  onClick={() => handleEnrollClick(workshop)}
-                >
-                  Enroll
-                </Button>
+                {/* <Link href="/event-details"> */}
+                <Link href={{ pathname: '/event-details', query:{id:workshop._id}}}>
+                  <Button
+                    style={{ backgroundColor: '#3EB449' }}
+                    variant="contained"
+                    color="success"
+                    fullWidth
+                    className="mt-4"
+                  // onClick={() => handleEnrollClick(workshop)}
+                  >
+                    Enroll
+                  </Button>
+                </Link>
               </div>
             </div>
           ))
@@ -207,63 +120,11 @@ const Workshops: React.FC<WorkshopProps> = ({ workshops }) => {
           color="standard"
         />
       </div>
-      <Modal
-        open={openModal}
-        onClose={handleCloseModal}
-        aria-labelledby="enroll-modal-title"
-        aria-describedby="enroll-modal-description"
-      >
-        <Box sx={{ ...modalStyle }}>
-          <h2 id="enroll-modal-title">Enroll for</h2>
-          <h3 style={{ wordWrap: 'break-word', wordBreak: 'break-word' }}>{selectedWorkshop?.eventName}</h3>
-          <TextField
-            label="Name"
-            name="name"
-            value={formData.name}
-            onChange={handleInputChange}
-            fullWidth
-            margin="normal"
-            required
-          />
-          <TextField
-            label="Email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            fullWidth
-            margin="normal"
-            required
-          />
-          <TextField
-            label="Contact Number"
-            name="contactNumber"
-            value={formData.contactNumber}
-            onChange={handleInputChange}
-            fullWidth
-            margin="normal"
-            required
-          />
-          {selectedWorkshop?.price ?
-            <Button style={{ backgroundColor: 'green' }} variant="contained" color="success" fullWidth className="mt-4" onClick={handleSubmit}>
-              Pay with Razorpay
-            </Button>
-            : <Button style={{ backgroundColor: 'green' }} variant="contained" color="success" fullWidth className="mt-4" onClick={handleSave}>Register</Button>}
-        </Box>
-      </Modal>
+     
     </div>
   );
 };
 
-const modalStyle = {
-  position: 'absolute' as 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
+
 
 export default Workshops;

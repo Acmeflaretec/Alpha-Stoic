@@ -31,7 +31,7 @@ const WhatWellCover = () => {
   return (
     <div className="bg-white text-black flex flex-col items-center p-6">
       <div className="max-w-6xl w-full">
-        <h2 className="text-2xl font-bold text-center mb-8" style={{ color: '#3EB449' }}>
+        <h2 className="text-2xl font-bold text-center mb-8">
           WHAT WE&apos;LL COVER INSIDE
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

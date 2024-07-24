@@ -1,9 +1,19 @@
 const Event = require('../models/Event');
 const multer = require('multer');
 const path = require('path');
-const Payment = require('../models/payment')
+const Payment = require('../models/payment')   
 const Contact = require('../models/Contact');
 const Community = require('../models/community');
+const dotenv = require('dotenv');
+dotenv.config();
+
+
+const accountSid = process.env.ACCOUNTSID;
+const authToken = process.env.ACCOUNTAUTH;
+const client = require('twilio')(accountSid, authToken);
+
+
+
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'uploads/');
@@ -23,6 +33,15 @@ const getEvents = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+const singleEvents = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const event = await Event.findOne({_id:id})
+        res.json(event);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
 
 const createEvent = async (req, res) => {
     const { eventName, text, features, price, date } = req.body;
@@ -31,7 +50,7 @@ const createEvent = async (req, res) => {
     const event = new Event({
         eventName,
         text,
-        features, // No need to split, it's already an array
+        features, 
         images,
         price,
         date,
@@ -47,10 +66,10 @@ const createEvent = async (req, res) => {
 
 const deleteEvent = async (req, res) => {
     try {
-        
-            await Event.findByIdAndDelete(req.params.id);
-            res.json({ message: 'Event deleted successfully' });
-       
+
+        await Event.findByIdAndDelete(req.params.id);
+        res.json({ message: 'Event deleted successfully' });
+
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -80,44 +99,59 @@ const deleteEvent = async (req, res) => {
 const updateEvent = async (req, res) => {
     const { eventName, text, features, price, date } = req.body;
     const images = req.files.map(file => file.filename);
-  
+
     try {
-      const event = await Event.findById(req.params.id);
-      if (event) {
-        event.eventName = eventName;
-        event.text = text;
-        event.features = features; // No need to split, it's already an array
-        if (images.length > 0) {
-          event.images = images; // Replace images if new images are uploaded
+        const event = await Event.findById(req.params.id);
+        if (event) {
+            event.eventName = eventName;
+            event.text = text;
+            event.features = features; // No need to split, it's already an array
+            if (images.length > 0) {
+                event.images = images; // Replace images if new images are uploaded
+            }
+            event.price = price;
+            event.date = date;
+            const updatedEvent = await event.save();
+            res.json(updatedEvent);
+        } else {
+            res.status(404).json({ message: 'Event not found' });
         }
-        event.price = price;
-        event.date = date;
-        const updatedEvent = await event.save();
-        res.json(updatedEvent);
-      } else {
-        res.status(404).json({ message: 'Event not found' });
-      }
     } catch (error) {
-      res.status(500).json({ message: error.message });
+        res.status(500).json({ message: error.message });
     }
-  };
+};
 
 
-  const savePayment = async (req, res) => {
+const savePayment = async (req, res) => {
     try {
-    const { name, email, contactNumber, price, eventName, paymentId } = req.body;
-    
-    const payment = new Payment({
-        name,
-        email,
-        contactNumber,
-        price,
-        eventName,
-        paymentId,
-        verified:true,
+        const { name, email, contactNumber, price, eventName, paymentId } = req.body;
+
+        const payment = new Payment({
+            name,
+            email,
+            contactNumber,
+            price,
+            eventName,
+            paymentId,
+            verified: true,
         });
-    
+
         const newPayment = await payment.save();
+
+
+
+
+        client.messages
+            .create({
+                body: 'Your registration was successful. You are now included in our WhatsApp group.',
+                from: 'whatsapp:+14155238886',
+                to: `whatsapp:+91${contactNumber}`
+            })
+            .then(message => console.log(message.sid))
+            .done();
+
+
+
         res.status(201).json(newPayment);
     } catch (error) {
         res.status(400).json({ message: error.message });
@@ -143,7 +177,7 @@ const deleteUser = async (req, res) => {
 };
 
 const updateUser = async (req, res) => {
-    console.log("hello1-",req.params.id);
+    console.log("hello1-", req.params.id);
     const { verified } = req.body;
     try {
         const user = await Payment.findById(req.params.id);
@@ -161,26 +195,26 @@ const updateUser = async (req, res) => {
 
 const handleContactForm = async (req, res) => {
     const { name, email, contactNumber, message } = req.body;
-  
+
     const contact = new Contact({
-      name,
-      email,
-      contactNumber,
-      message,
-      verified:true,
+        name,
+        email,
+        contactNumber,
+        message,
+        verified: true,
     });
-  
+
     try {
-      const newContact = await contact.save();
-      res.status(201).json(newContact);
+        const newContact = await contact.save();
+        res.status(201).json(newContact);
     } catch (error) {
-      res.status(400).json({ message: error.message });
+        res.status(400).json({ message: error.message });
     }
-  };
+};
 
 
-  
-const  contactDetails= async (req, res) => {
+
+const contactDetails = async (req, res) => {
     try {
         const users = await Contact.find().sort({ createdAt: -1 });
         res.json(users);
@@ -189,7 +223,7 @@ const  contactDetails= async (req, res) => {
     }
 };
 
-const  deleteContact  = async (req, res) => {
+const deleteContact = async (req, res) => {
     try {
         await Contact.findByIdAndDelete(req.params.id);
         res.json({ message: 'Contact Details deleted successfully' });
@@ -199,7 +233,7 @@ const  deleteContact  = async (req, res) => {
 };
 
 const updateContact = async (req, res) => {
-    console.log("hello1-",req.params.id);
+    console.log("hello1-", req.params.id);
     const { verified } = req.body;
     try {
         const user = await Contact.findById(req.params.id);
@@ -219,18 +253,18 @@ const updateContact = async (req, res) => {
 
 const saveCommunity = async (req, res) => {
     try {
-    const { name, email, contactNumber, price, eventName, paymentId } = req.body;
-    
-    const payment = new Community({
-        name,
-        email,
-        contactNumber,
-        price,
-        eventName,
-        paymentId,
-        verified:true,
+        const { name, email, contactNumber, price, eventName, paymentId } = req.body;
+
+        const payment = new Community({
+            name,
+            email,
+            contactNumber,
+            price,
+            eventName,
+            paymentId,
+            verified: true,
         });
-    
+
         const newPayment = await payment.save();
         res.status(201).json(newPayment);
     } catch (error) {
@@ -273,4 +307,4 @@ const updateCommunity = async (req, res) => {
 };
 
 
-module.exports = { getEvents, createEvent, deleteEvent, updateEvent, upload ,savePayment ,UserDetails ,updateUser , deleteUser, handleContactForm, contactDetails, deleteContact,updateContact ,saveCommunity,communityDetails,deleteCommunity,updateCommunity};
+module.exports = { getEvents, createEvent, deleteEvent, updateEvent, upload, savePayment, UserDetails, updateUser, deleteUser, handleContactForm, contactDetails, deleteContact, updateContact, saveCommunity, communityDetails, deleteCommunity, updateCommunity,singleEvents };

@@ -3,18 +3,18 @@ import Image from 'next/image';
 const AttendeeSection = () => {
   const attendeeTypes = [
     {
-      title: "You're A Beginner Wanting To Kickstart Your Financial Journey & Build Wealth",
-      description: "From students to entrepreneurs, discover how AI can empower you to build wealth and secure financial freedom without prior experience.",
+      title: "Beginners",
+      description: " Learn the fundamentals of stock picking and discover a powerful framework to identify promising companies with the potential for breakthrough success.",
       icon: "/beginner-icon.png"
     },
     {
-      title: "You're A Trader Wanting To Skyrocket Your Success & Multiply Your Profits",
-      description: "Mid-level traders, investors, and market practitioners, dive into the world of AI to revolutionize your strategies and maximize your profits like never before.",
+      title: "Intermediate Investors",
+      description: " Take your skills to the next level. Learn simple hacks to find hidden gems before the crowd catches on and master the art of company analysis to build a rock-solid investment portfolio.",
       icon: "/trader-icon.png"
     },
     {
-      title: "You're An Experienced Trader Ready To Master The Market & Stay Ahead Of The Curve",
-      description: "Seasoned professionals and intra-day traders, harness the full potential of AI to scale your strategies 10x and discover further edge to dominate the market.",
+      title: "Advanced Investors",
+      description: " Refine your edge. Gain insights into proven supply and demand zone analysis for strategic entry and exit points and develop an unshakeable belief system to conquer market volatility.",
       icon: "/expert-icon.png"
     }
   ];

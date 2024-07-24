@@ -8,7 +8,7 @@ const path = require('path');
 dotenv.config();
 
 connectDB();
-
+  
 const app = express();
 // app.use(cors({
 //   origin: [process.env.CLIENT,process.env.ADMIN], 
@@ -16,7 +16,7 @@ const app = express();
 // }));
 // Configure CORS
 const corsOptions = {
-  origin: [process.env.CLIENT,process.env.ADMIN],
+  origin: [process.env.CLIENT,process.env.ADMIN],    
   optionsSuccessStatus: 200,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
