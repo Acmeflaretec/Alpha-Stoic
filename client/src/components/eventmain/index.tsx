@@ -110,6 +110,8 @@ const EventPage: React.FC<EventPageProps> = ({ workshop }) => {
         eventName: selectedWorkshop.eventName,
         paymentId: "N/A"
       });
+      console.log('response und',response);
+      
       if (response.status !== 201) {
         throw new Error('Failed to save details');
       } else {
@@ -157,7 +159,7 @@ const EventPage: React.FC<EventPageProps> = ({ workshop }) => {
               </div>
             </div>
             <button className=" text-white font-bold py-3 px-6 rounded-full hover:bg-green-600 transition duration-300" style={{ backgroundColor: '#3EB449' }}onClick={() => handleEnrollClick(workshop)}>
-              {workshop.eventName} Now At Just Rs.{workshop.price}/- Only
+              {workshop.eventName} Now At Just Rs.{workshop?.price ? workshop?.price : 'Free' }/- Only
             </button>
           </div>
         </div>

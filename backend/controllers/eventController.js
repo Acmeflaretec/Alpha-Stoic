@@ -1,7 +1,7 @@
 const Event = require('../models/Event');
 const multer = require('multer');
 const path = require('path');
-const Payment = require('../models/payment')   
+const Payment = require('../models/payment')
 const Contact = require('../models/Contact');
 const Community = require('../models/community');
 const dotenv = require('dotenv');
@@ -36,7 +36,7 @@ const getEvents = async (req, res) => {
 const singleEvents = async (req, res) => {
     try {
         const id = req.params.id;
-        const event = await Event.findOne({_id:id})
+        const event = await Event.findOne({ _id: id })
         res.json(event);
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -50,7 +50,7 @@ const createEvent = async (req, res) => {
     const event = new Event({
         eventName,
         text,
-        features, 
+        features,
         images,
         price,
         date,
@@ -125,6 +125,7 @@ const updateEvent = async (req, res) => {
 const savePayment = async (req, res) => {
     try {
         const { name, email, contactNumber, price, eventName, paymentId } = req.body;
+        console.log(name, email, contactNumber, price, eventName, paymentId);
 
         const payment = new Payment({
             name,
@@ -137,21 +138,16 @@ const savePayment = async (req, res) => {
         });
 
         const newPayment = await payment.save();
+        console.log('newPayment', newPayment);
 
-
-
-
-        client.messages
-            .create({
-                body: 'Your registration was successful. You are now included in our WhatsApp group.',
-                from: 'whatsapp:+14155238886',
-                to: `whatsapp:+91${contactNumber}`
-            })
-            .then(message => console.log(message.sid))
-            .done();
-
-
-
+        // client.messages
+        //     .create({
+        //         body: 'Your registration was successful. You are now included in our WhatsApp group.',
+        //         from: 'whatsapp:+14155238886',
+        //         to: `whatsapp:+91${contactNumber}`
+        //     })
+        //     .then(message => console.log(message.sid))
+        //     .done();
         res.status(201).json(newPayment);
     } catch (error) {
         res.status(400).json({ message: error.message });
@@ -307,4 +303,4 @@ const updateCommunity = async (req, res) => {
 };
 
 
-module.exports = { getEvents, createEvent, deleteEvent, updateEvent, upload, savePayment, UserDetails, updateUser, deleteUser, handleContactForm, contactDetails, deleteContact, updateContact, saveCommunity, communityDetails, deleteCommunity, updateCommunity,singleEvents };
+module.exports = { getEvents, createEvent, deleteEvent, updateEvent, upload, savePayment, UserDetails, updateUser, deleteUser, handleContactForm, contactDetails, deleteContact, updateContact, saveCommunity, communityDetails, deleteCommunity, updateCommunity, singleEvents };
