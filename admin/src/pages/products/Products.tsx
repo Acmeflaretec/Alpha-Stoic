@@ -450,7 +450,7 @@ console.log('formData',formData);
               </CardContent>
             </Card>
           </Grid>
-        ))) : (<span>Please add Products</span>)
+        ))) : (<span>Please add Events</span>)
         }
       </Grid>
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: "10px" }}>

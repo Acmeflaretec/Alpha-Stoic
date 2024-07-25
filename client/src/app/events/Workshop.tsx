@@ -21,9 +21,8 @@ interface WorkshopProps {
   }[];
 }
 const Workshops: React.FC<WorkshopProps> = ({ workshops }) => {
+  const URL = process.env.NEXT_PUBLIC_URL
   const [currentPage, setCurrentPage] = useState(1);
-  
-
   const cardsPerPage = 9;
   const maxFeatures = 6;
 
