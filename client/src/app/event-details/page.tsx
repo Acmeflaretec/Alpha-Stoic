@@ -34,9 +34,64 @@
 
 // export default eventDetails;
 
+
+
+
+// "use client";
+// import { useSearchParams } from 'next/navigation';
+// import { useEffect, useState } from 'react';
+// import axios from 'axios';
+// import Bonuses from "@/components/bonuses";
+// import EventPage from "@/components/eventmain";
+// import MeetYourMentor from "@/components/mentor";
+// import AttendeeSection from "@/components/recommend";
+// import WhatWellCover from "@/components/whatwillcover";
+// import WhyThisEvent from "@/components/whythis";
+
+// const EventDetails = () => {
+//   const searchParams = useSearchParams();
+//   const [workshop, setWorkshop] = useState<any>(null);
+//   const workshopId = searchParams.get('id'); 
+
+//   useEffect(() => {
+//     if (workshopId) {
+//       const fetchWorkshop = async () => {
+//         try {
+//           const response = await axios.get(`${process.env.NEXT_PUBLIC_URL}/singleEvents/${workshopId}`);
+//           setWorkshop(response.data);
+//         } catch (error) {
+//           console.error('Error fetching workshop details:', error);
+//         }
+//       }; 
+//       fetchWorkshop();
+//     }
+//   }, [workshopId]);
+
+//   if (!workshop) {
+//     return <div>Loading...</div>;
+//   }
+
+//   return (
+//     <>
+//       <EventPage workshop={workshop} />
+//       <WhyThisEvent />
+//       <AttendeeSection />
+//       <WhatWellCover />
+//       <Bonuses />
+//       <MeetYourMentor />
+//     </>
+//   );
+// };
+
+// export default EventDetails;
+
+
+
+
+
 "use client";
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import axios from 'axios';
 import Bonuses from "@/components/bonuses";
 import EventPage from "@/components/eventmain";
@@ -80,5 +135,12 @@ const EventDetails = () => {
   );
 };
 
-export default EventDetails;
+const SuspendedEventDetails = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <EventDetails />
+  </Suspense>
+);
+
+export default SuspendedEventDetails;
+
 
