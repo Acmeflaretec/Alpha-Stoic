@@ -36,7 +36,7 @@ const AttendeeSection = () => {
               {/* <div className="mb-4">
                 <Image src={type.icon} alt={`Icon ${index + 1}`} width={80} height={80} />
               </div> */}
-              <h3 className="text-xl font-bold mb-4">
+              <h3 className="text-xl font-bold mb-4 text-white">
                 {type.title.split(' ').map((word, i) => 
                   word.toLowerCase() === 'beginner' || 
                   word.toLowerCase() === 'trader' || 

@@ -1,7 +1,7 @@
 // components/MeetYourMentor.js
 const MeetYourMentor = () => {
     const mentor = {
-      image: 'https://backend.alphastoic.in/uploads/1720876099987-for%20web.jpg', // Replace with actual image URL
+      image: 'mentor.png', 
       name: 'Krishna Kumar Mavila',
       qualifications: [
         'Founder and CEO of Alpha Stoic Finserve',
@@ -15,7 +15,7 @@ const MeetYourMentor = () => {
     };
   
     return (
-      <section className="py-10 bg-gray-50">
+      <section className="py-10 bg-gray-50 p-5">
         {/* <h1 className="text-3xl font-bold text-[#3EB449] text-center mb-10"> */}
         <h1 className="text-3xl font-bold text-center mb-10">
         About The Mentor

@@ -30,10 +30,10 @@ const Bonuses = () => {
     ];
   
     return (
-      <section className="py-10 bg-gray-100 text-center">
+      <section className="py-10 bg-gray-100 text-center p-5">
         {/* <h1 className="text-3xl font-bold text-[#3EB449] mb-6"> */}
         <h1 className="text-3xl font-bold mb-6">
-        Get Access to BONUSES Worth Rs.14900/- FREE
+        Get Access to BONUSES Worth ₹14900/- FREE
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {courses.map((course, index) => (
@@ -50,8 +50,8 @@ const Bonuses = () => {
                 <p className="text-gray-700 mb-2">
                   {course.description}
                 </p>
-                <p className="text-xl font-bold text-[#3EB449]">
-                  Value: Rs.{course.value}/-
+                <p className="text-xl font-bold text-black">
+                  ₹ {course.value}/-
                 </p>
               </div>
             </div>

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Countdown from 'react-countdown';
 import axios from 'axios';
 import { Button, Modal, TextField, Box } from '@mui/material';
+import { FaCalendarAlt, FaClock, FaHourglassHalf, FaVideo } from 'react-icons/fa';
 
 interface EventPageProps {
   workshop: {
@@ -131,60 +132,93 @@ const EventPage: React.FC<EventPageProps> = ({ workshop }) => {
           {workshop.text}
         </p>
         
-        <div className="mt-12  flex flex-col md:flex-row gap-8">
-          <div className="md:w-1/2 bg-yellow-400  p-6 flex flex-col items-center">
-            <img src={`${process.env.NEXT_PUBLIC_URL}/uploads/${workshop.images[0]}`} alt={workshop.eventName} className="  mb-4"/>
-          </div>
-          <div className="md:w-1/2 flex flex-col">
-            {/* <div className="text-2xl font-bold mb-6">
-              {workshop.features[0]}
-            </div> */}
-            <ul className="list-none space-y-4 mb-8">
-              {workshop.features.map((feature, index) => (
-                <li key={index} className="flex items-center">
-                  <span className="mr-2" style={{ color: '#3EB449' }}>✓</span>{feature}
-                </li>
-              ))}
-            </ul>
-            <div className="flex justify-between mb-8">
-              <div className="text-center">
-                <div className="text-lg font-bold">{new Date(workshop.date).toLocaleDateString()}</div>
-                <div className="text-sm">{new Date(workshop.date).toLocaleTimeString()}</div>
-              </div>
-              <div className="text-center">
-                <div className="text-lg font-bold">3+ Hours</div>
-                <div className="text-sm">Live Session</div>
-              </div>
-            </div>
-            {workshop?.price ? <button className=" text-white font-bold py-3 px-6 rounded-full hover:bg-green-600 transition duration-300" style={{ backgroundColor: '#3EB449' }}onClick={() => handleEnrollClick(workshop)}>
-              {workshop.eventName} Now At Just Rs.{workshop?.price}/- Only
-            </button> : <button className=" text-white font-bold py-3 px-6 rounded-full hover:bg-green-600 transition duration-300" style={{ backgroundColor: '#3EB449' }}onClick={() => handleEnrollClick(workshop)}>
-              {workshop.eventName} Now At Free
-            </button>}
-            
+        <div className="mt-12 flex flex-col md:flex-row gap-8">
+  <div className="md:w-1/2 bg-yellow-400 p-6 flex flex-col items-center">
+    <img
+      src={`${process.env.NEXT_PUBLIC_URL}/uploads/${workshop.images[0]}`}
+      alt={workshop.eventName}
+      className="mb-4"
+    />
+   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 w-full">
+        <div className="bg-white p-4 rounded-lg flex items-center shadow-md">
+          <FaCalendarAlt className="text-[#3EB449] text-2xl mr-2" />
+          <div>
+            <div className="text-lg font-bold">{new Date(workshop.date).toLocaleDateString()}</div>
           </div>
         </div>
+        <div className="bg-white p-4 rounded-lg flex items-center shadow-md">
+          <FaClock className="text-[#3EB449] text-2xl mr-2" />
+          <div>
+            <div className="text-lg font-bold">{new Date(workshop.date).toLocaleTimeString()}</div>
+          </div>
+        </div>
+        <div className="bg-white p-4 rounded-lg flex items-center shadow-md">
+          <FaHourglassHalf className="text-[#3EB449] text-2xl mr-2" />
+          <div>
+            <div className="text-lg font-bold">3+ Hours</div>
+          </div>
+        </div>
+        <div className="bg-white p-4 rounded-lg flex items-center shadow-md">
+          <FaVideo className="text-[#3EB449] text-2xl mr-2" />
+          <div>
+            <div className="text-lg font-bold">Live Session</div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div className="md:w-1/2 flex flex-col">
+    <ul className="list-none space-y-4 mb-8">
+      {workshop.features.map((feature, index) => (
+        <li key={index} className="flex items-center">
+          <span className="mr-2" style={{ color: '#3EB449' }}>✓</span>
+          {feature}
+        </li>
+      ))}
+    </ul>
+    <div className="mt-12 mb-12 text-center">
+      <Countdown
+        date={eventDate}
+        renderer={({ days, hours, minutes, seconds }) => (
+          <div className="flex justify-center space-x-4">
+            {[
+              { label: 'DAYS', value: days },
+              { label: 'HOURS', value: hours },
+              { label: 'MIN', value: minutes },
+              { label: 'SEC', value: seconds },
+            ].map(({ label, value }) => (
+              <div key={label} className="text-center">
+                <div className="text-4xl font-bold" style={{ color: '#3EB449' }}>
+                  {value.toString().padStart(2, '0')}
+                </div>
+                <div className="text-sm">{label}</div>
+              </div>
+            ))}
+          </div>
+        )}
+      />
+    </div>
+    {workshop?.price ? (
+      <button
+        className="text-white font-extrabold py-3 px-6 rounded-full hover:bg-green-600 transition duration-300"
+        style={{ backgroundColor: '#3EB449', fontSize:'25px'}}
+        onClick={() => handleEnrollClick(workshop)}
+      >
+        ₹ {workshop?.price}/- Only
+      </button>
+    ) : (
+      <button
+        className="text-white font-bold py-3 px-6 rounded-full hover:bg-green-600 transition duration-300"
+        style={{ backgroundColor: '#3EB449' }}
+        onClick={() => handleEnrollClick(workshop)}
+      >
+        {workshop.eventName} Now At Free
+      </button>
+    )}
+  </div>
+</div>
+
         
-        <div className="mt-12 text-center">
-          <Countdown 
-            date={eventDate} 
-            renderer={({ days, hours, minutes, seconds }) => (
-              <div className="flex justify-center space-x-4">
-                {[
-                  { label: 'DAYS', value: days },
-                  { label: 'HOURS', value: hours },
-                  { label: 'MIN', value: minutes },
-                  { label: 'SEC', value: seconds }
-                ].map(({ label, value }) => (
-                  <div key={label} className="text-center">
-                    <div className="text-4xl font-bold" style={{ color: '#3EB449' }}>{value.toString().padStart(2, '0')}</div>
-                    <div className="text-sm">{label}</div>
-                  </div>
-                ))}
-              </div>
-            )}
-          />
-        </div>
+   
 
         <Modal
         open={openModal}
