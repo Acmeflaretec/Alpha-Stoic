@@ -6,6 +6,8 @@ const eventSchema = new mongoose.Schema({
   features: { type: [String], required: true },
   images: { type: [String], required: true },
   price: { type: Number, required: true },
+  duration: { type: String, required: true },
+  type: { type: String, required: true },
   date: { type: String, required: true },
 }, { timestamps: true });
 

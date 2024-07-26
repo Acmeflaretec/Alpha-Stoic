@@ -44,7 +44,8 @@ const singleEvents = async (req, res) => {
 };
 
 const createEvent = async (req, res) => {
-    const { eventName, text, features, price, date } = req.body;
+    const { eventName, text, features, price,duration,type,date } = req.body;
+    console.log(duration,type,date);
     const images = req.files.map(file => file.filename);
 
     const event = new Event({
@@ -53,6 +54,8 @@ const createEvent = async (req, res) => {
         features,
         images,
         price,
+        duration,
+        type,
         date,
     });
 
@@ -97,7 +100,8 @@ const deleteEvent = async (req, res) => {
 // };
 
 const updateEvent = async (req, res) => {
-    const { eventName, text, features, price, date } = req.body;
+    const { eventName, text, features, price,duration,type, date } = req.body;
+    console.log(duration,type,date);
     const images = req.files.map(file => file.filename);
 
     try {
@@ -110,6 +114,8 @@ const updateEvent = async (req, res) => {
                 event.images = images; // Replace images if new images are uploaded
             }
             event.price = price;
+            event.duration = duration;
+            event.type = type;
             event.date = date;
             const updatedEvent = await event.save();
             res.json(updatedEvent);
@@ -138,7 +144,7 @@ const savePayment = async (req, res) => {
         });
 
         const newPayment = await payment.save();
-        console.log('newPayment', newPayment);
+        console.log('newPayment', newPayment);   
 
         // client.messages
         //     .create({
