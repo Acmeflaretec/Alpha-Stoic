@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-// import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
 import './style.css';
 
@@ -11,7 +10,7 @@ const Header = () => {
   // Navbar toggle
   const [navbarOpen, setNavbarOpen] = useState(false);
   const navbarToggleHandler = () => {
-    setNavbarOpen(!navbarOpen);
+    setNavbarOpen(prev => !prev);
   };
 
   // Sticky Navbar
@@ -23,21 +22,27 @@ const Header = () => {
       setSticky(false);
     }
   };
+  
   useEffect(() => {
     window.addEventListener("scroll", handleStickyNavbar);
-  });
+    return () => window.removeEventListener("scroll", handleStickyNavbar);
+  }, []);
 
-  // submenu handler
+  // Submenu handler
   const [openIndex, setOpenIndex] = useState(-1);
   const handleSubmenu = (index) => {
-    if (openIndex === index) {
-      setOpenIndex(-1);
-    } else {
-      setOpenIndex(index);
-    }
+    setOpenIndex(prevIndex => (prevIndex === index ? -1 : index));
   };
 
   const usePathName = usePathname();
+
+  // Handler for closing the navbar on link click
+  const handleLinkClick = () => {
+    if (navbarOpen) {
+      console.log('Closing navbar'); // Debugging line
+      setNavbarOpen(false);
+    }
+  };
 
   return (
     <>
@@ -111,6 +116,7 @@ const Header = () => {
                         {menuItem.path ? (
                           <Link
                             href={menuItem.path}
+                            onClick={handleLinkClick}
                             className={`flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${
                               usePathName === menuItem.path
                                 ? "text-green dark:text-white"
@@ -146,6 +152,7 @@ const Header = () => {
                                 <Link
                                   href={submenuItem.path}
                                   key={index}
+                                  onClick={handleLinkClick}
                                   className="block rounded py-2.5 text-sm text-dark hover:text-green dark:text-white/70 dark:hover:text-white lg:px-3"
                                 >
                                   {submenuItem.title}

@@ -213,24 +213,33 @@ const EventPage: React.FC<EventPageProps> = ({ workshop }) => {
               />
             </div>
             {workshop?.price ? (
-              <button
-                className="text-white font-extrabold py-3 px-6 rounded-full hover:bg-green-600 transition duration-300"
-                style={{ backgroundColor: '#3EB449', fontSize: '25px' }}
-                onClick={() => handleEnrollClick(workshop)}
-                disabled={isEventOver}
-              >
-                ₹ {workshop?.price}/- Only
-              </button>
-            ) : (
-              <button
-                className="text-white font-bold py-3 px-6 rounded-full hover:bg-green-600 transition duration-300"
-                style={{ backgroundColor: '#3EB449' }}
-                onClick={() => handleEnrollClick(workshop)}
-                disabled={isEventOver}
-              >
-                {workshop.eventName} Now At Free
-              </button>
-            )}
+            <button
+              className={`text-white font-extrabold py-3 px-6 rounded-full transition duration-300 ${
+                isEventOver ? 'bg-gray-500 cursor-not-allowed' : 'hover:bg-green-600'
+              }`}
+              style={{ 
+                backgroundColor: isEventOver ? '#808080' : '#3EB449', 
+                fontSize: '25px' 
+              }}
+              onClick={() => handleEnrollClick(workshop)}
+              disabled={isEventOver}
+            >
+              ₹ {workshop?.price}/- Only
+            </button>
+          ) : (
+            <button
+              className={`text-white font-bold py-3 px-6 rounded-full transition duration-300 ${
+                isEventOver ? 'bg-gray-500 cursor-not-allowed' : 'hover:bg-green-600'
+              }`}
+              style={{ 
+                backgroundColor: isEventOver ? '#808080' : '#3EB449'
+              }}
+              onClick={() => handleEnrollClick(workshop)}
+              disabled={isEventOver}
+            >
+              {workshop.eventName} Now At Free
+            </button>
+          )}
           </div>
         </div>
 

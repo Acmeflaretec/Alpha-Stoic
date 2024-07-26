@@ -87,8 +87,6 @@
 
 
 
-
-
 "use client";
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState, Suspense } from 'react';
@@ -100,27 +98,42 @@ import AttendeeSection from "@/components/recommend";
 import WhatWellCover from "@/components/whatwillcover";
 import WhyThisEvent from "@/components/whythis";
 
+// Updated Spinner component
+const Spinner = () => (
+  <div className="flex justify-center items-center h-screen">
+    <div className="animate-spin rounded-full h-32 w-32 border-t-8 border-b-8 border-green-500"></div>
+  </div>
+);
+
 const EventDetails = () => {
   const searchParams = useSearchParams();
   const [workshop, setWorkshop] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
   const workshopId = searchParams.get('id'); 
 
   useEffect(() => {
     if (workshopId) {
       const fetchWorkshop = async () => {
         try {
+          setLoading(true);
           const response = await axios.get(`${process.env.NEXT_PUBLIC_URL}/singleEvents/${workshopId}`);
           setWorkshop(response.data);
         } catch (error) {
           console.error('Error fetching workshop details:', error);
+        } finally {
+          setLoading(false);
         }
       }; 
       fetchWorkshop();
     }
   }, [workshopId]);
 
+  if (loading) {
+    return <Spinner />;
+  }
+
   if (!workshop) {
-    return <div>Loading...</div>;
+    return <div>No workshop data available.</div>;
   }
 
   return (
@@ -136,11 +149,9 @@ const EventDetails = () => {
 };
 
 const SuspendedEventDetails = () => (
-  <Suspense fallback={<div>Loading...</div>}>
+  <Suspense fallback={<Spinner />}>
     <EventDetails />
   </Suspense>
 );
 
 export default SuspendedEventDetails;
-
-
