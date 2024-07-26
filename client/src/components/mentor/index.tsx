@@ -20,7 +20,7 @@ const MeetYourMentor = () => {
         <h1 className="text-3xl font-bold text-center mb-10">
         About The Mentor
         </h1>
-        <div className="flex flex-col md:flex-row items-center max-w-5xl mx-auto bg-white rounded-lg shadow-lg p-6">
+        <div className="flex flex-col gap-5 md:flex-row items-center max-w-5xl mx-auto bg-white rounded-lg shadow-lg p-6">
           <div className="md:w-1/2 mb-4 md:mb-0">
             <img
               src={mentor.image}

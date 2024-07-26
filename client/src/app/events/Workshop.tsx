@@ -54,10 +54,10 @@ const Workshops: React.FC<WorkshopProps> = ({ workshops }) => {
           selectedWorkshops.map((workshop) => (
             <div key={workshop._id} className="card">
               <div className="">
-                <div className="relative h-48 w-full">
+                <div className="relative h-64 w-full">
                   <Carousel showThumbs={false} autoPlay infiniteLoop>
                     {workshop.images.map((src, index) => (
-                      <div key={index} className="relative h-48 w-full">
+                      <div key={index} className="relative h-64 w-full">
                         {/* <Image
                           src={`${URL}/uploads/${src}`}
                           alt={workshop.eventName}
@@ -66,9 +66,10 @@ const Workshops: React.FC<WorkshopProps> = ({ workshops }) => {
                         /> */}
                         {/* <img src={`${URL}/uploads/${src}`} alt={workshop.eventName} style={{ width: '100%', height: '200px', objectFit: 'cover' }} /> */}
                         <img
-                          src={`${URL}/uploads/${src}`}
+                         src={`${URL}/uploads/${src}`}
+                          // src='mentor.png'
                           alt={workshop.eventName}
-                          style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                        style={{ objectFit: 'cover', width: '100%', height: '100%' }}
                         />
                       </div>
                     ))}
