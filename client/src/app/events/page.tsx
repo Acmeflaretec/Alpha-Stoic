@@ -12,6 +12,9 @@ const BlogDetailsPage = () => {
 
   useEffect(() => {
     fetchEvents();
+    setTimeout(() => {
+      window.scroll(0, 0);
+    }, 1);
   }, []);
 
   const fetchEvents = async () => {
