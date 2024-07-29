@@ -97,6 +97,7 @@ import MeetYourMentor from "@/components/mentor";
 import AttendeeSection from "@/components/recommend";
 import WhatWellCover from "@/components/whatwillcover";
 import WhyThisEvent from "@/components/whythis";
+import StickyPayment from '@/components/payment';
 
 // Updated Spinner component
 const Spinner = () => (
@@ -144,6 +145,7 @@ const EventDetails = () => {
       <WhatWellCover />
       <Bonuses />
       <MeetYourMentor />
+      <StickyPayment workshop={workshop}/>
     </>
   );
 };
