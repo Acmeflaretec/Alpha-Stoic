@@ -9,6 +9,16 @@ const eventSchema = new mongoose.Schema({
   duration: { type: String, required: true },
   type: { type: String, required: true },
   date: { type: String, required: true },
+  coverInside: [{
+    heading: String,
+    text: String
+  }],
+  bonuses: [{
+    heading: String,
+    text: String,
+    price: String
+  }],
+  whyAttend: [String]
 }, { timestamps: true });
 
 const Event = mongoose.model('Event', eventSchema);

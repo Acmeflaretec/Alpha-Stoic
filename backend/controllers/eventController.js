@@ -44,9 +44,13 @@ const singleEvents = async (req, res) => {
 };
 
 const createEvent = async (req, res) => {
-    const { eventName, text, features, price,duration,type,date } = req.body;
-    console.log(duration,type,date);
+    const { eventName, text, features, price, duration, type, date, coverInsideHeadings, coverInsideTexts, bonusHeadings, bonusTexts, bonusPrices, whyAttend } = req.body;
+    // console.log(features, type, date);
     const images = req.files.map(file => file.filename);
+
+    const coverInside = coverInsideHeadings?.map((heading, index) => ({ heading, text: coverInsideTexts[index] }));
+    const bonuses = bonusHeadings?.map((heading, index) => ({ heading, text: bonusTexts[index], price: bonusPrices[index] }));
+
 
     const event = new Event({
         eventName,
@@ -57,6 +61,9 @@ const createEvent = async (req, res) => {
         duration,
         type,
         date,
+        coverInside,
+        bonuses,
+        whyAttend
     });
 
     try {
@@ -100,9 +107,11 @@ const deleteEvent = async (req, res) => {
 // };
 
 const updateEvent = async (req, res) => {
-    const { eventName, text, features, price,duration,type, date } = req.body;
-    console.log(duration,type,date);
+    const { eventName, text, features, price, duration, type, date, coverInsideHeadings, coverInsideTexts, bonusHeadings, bonusTexts, bonusPrices, whyAttend } = req.body;
+    console.log(duration, type, date);
     const images = req.files.map(file => file.filename);
+    const coverInside = coverInsideHeadings.map((heading, index) => ({ heading, text: coverInsideTexts[index] }));
+    const bonuses = bonusHeadings.map((heading, index) => ({ heading, text: bonusTexts[index], price: bonusPrices[index] }));
 
     try {
         const event = await Event.findById(req.params.id);
@@ -114,9 +123,12 @@ const updateEvent = async (req, res) => {
                 event.images = images; // Replace images if new images are uploaded
             }
             event.price = price;
-            event.duration = duration;
+            event.duration = duration;   
             event.type = type;
             event.date = date;
+            event.coverInside = coverInside,
+            event.bonuses = bonuses,
+            event.whyAttend = whyAttend
             const updatedEvent = await event.save();
             res.json(updatedEvent);
         } else {
@@ -144,7 +156,7 @@ const savePayment = async (req, res) => {
         });
 
         const newPayment = await payment.save();
-        console.log('newPayment', newPayment);   
+        console.log('newPayment', newPayment);
 
         // client.messages
         //     .create({
