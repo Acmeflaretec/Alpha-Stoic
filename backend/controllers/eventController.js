@@ -1,6 +1,6 @@
 const Event = require('../models/Event');
-const multer = require('multer');
-const path = require('path');
+// const multer = require('multer');
+// const path = require('path');
 const Payment = require('../models/payment')
 const Contact = require('../models/Contact');
 const Community = require('../models/community');
@@ -14,16 +14,16 @@ const client = require('twilio')(accountSid, authToken);
 
 
 
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'uploads/');
-    },
-    filename: (req, file, cb) => {
-        cb(null, `${Date.now()}-${file.originalname}`);
-    },
-});
+// const storage = multer.diskStorage({
+//     destination: (req, file, cb) => {
+//         cb(null, 'uploads/');
+//     },
+//     filename: (req, file, cb) => {
+//         cb(null, `${Date.now()}-${file.originalname}`);
+//     },
+// });
 
-const upload = multer({ storage });
+// const upload = multer({ storage });
 
 const getEvents = async (req, res) => {
     try {
@@ -388,4 +388,4 @@ const updateCommunity = async (req, res) => {
 };
 
 
-module.exports = { getEvents, createEvent, deleteEvent, updateEvent, upload, savePayment, UserDetails, updateUser, deleteUser, handleContactForm, contactDetails, deleteContact, updateContact, saveCommunity, communityDetails, deleteCommunity, updateCommunity, singleEvents };
+module.exports = { getEvents, createEvent, deleteEvent, updateEvent, savePayment, UserDetails, updateUser, deleteUser, handleContactForm, contactDetails, deleteContact, updateContact, saveCommunity, communityDetails, deleteCommunity, updateCommunity, singleEvents };

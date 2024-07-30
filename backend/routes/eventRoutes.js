@@ -1,6 +1,7 @@
 const express = require('express');
-const { getEvents, createEvent, deleteEvent, updateEvent, savePayment, upload, UserDetails, deleteUser, updateUser, handleContactForm, contactDetails, deleteContact, updateContact, saveCommunity, communityDetails, deleteCommunity, updateCommunity,singleEvents} = require('../controllers/eventController');
+const { getEvents, createEvent, deleteEvent, updateEvent, savePayment,  UserDetails, deleteUser, updateUser, handleContactForm, contactDetails, deleteContact, updateContact, saveCommunity, communityDetails, deleteCommunity, updateCommunity,singleEvents} = require('../controllers/eventController');
 const router = express.Router();
+const { upload } = require('../multer');
 
 router.route('/events')
   .get(getEvents)
