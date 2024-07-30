@@ -43,30 +43,68 @@ const singleEvents = async (req, res) => {
     }
 };
 
+
 const createEvent = async (req, res) => {
-    const { eventName, text, features, price, duration, type, date, coverInsideHeadings, coverInsideTexts, bonusHeadings, bonusTexts, bonusPrices, whyAttend } = req.body;
-    // console.log(features, type, date);
-    const images = req.files.map(file => file.filename);
-
-    const coverInside = coverInsideHeadings?.map((heading, index) => ({ heading, text: coverInsideTexts[index] }));
-    const bonuses = bonusHeadings?.map((heading, index) => ({ heading, text: bonusTexts[index], price: bonusPrices[index] }));
-
-
-    const event = new Event({
-        eventName,
-        text,
-        features,
-        images,
-        price,
-        duration,
-        type,
-        date,
-        coverInside,
-        bonuses,
-        whyAttend
-    });
-
     try {
+        const {
+            eventName,
+            text,
+            features,
+            price,
+            duration,
+            type,
+            date,
+            coverInsideHeadings,
+            coverInsideTexts,
+            bonusHeadings,
+            bonusTexts,
+            bonusPrices,
+            whyAttend
+        } = req.body;
+
+        console.log(eventName, text, features, price, duration, type, date, coverInsideHeadings, coverInsideTexts, bonusHeadings, bonusTexts, bonusPrices, whyAttend);
+
+        const images = req.files.map(file => file.filename);
+
+        const coverInsideHeadingsArray = Array.isArray(coverInsideHeadings) ? coverInsideHeadings : [coverInsideHeadings];
+        const coverInsideTextsArray = Array.isArray(coverInsideTexts) ? coverInsideTexts : [coverInsideTexts];
+
+
+        const bonusHeadingsArray = Array.isArray(bonusHeadings) ? bonusHeadings : [bonusHeadings];
+        const bonusTextsArray = Array.isArray(bonusTexts) ? bonusTexts : [bonusTexts];
+        const bonusPricesArray = Array.isArray(bonusPrices) ? bonusPrices : [bonusPrices];
+
+        const coverInside = coverInsideHeadingsArray.map((heading, index) => ({
+            heading,
+            text: coverInsideTextsArray[index]
+        }));
+
+        console.log('coverInside', coverInside);
+
+        const bonuses = bonusHeadingsArray.map((heading, index) => ({
+            heading,
+            text: bonusTextsArray[index],
+            price: bonusPricesArray[index]
+        }));
+
+        console.log('bonuses', bonuses);
+
+        const event = new Event({
+            eventName,
+            text,
+            features,
+            images,
+            price,
+            duration,
+            type,
+            date,
+            coverInside,
+            bonuses,
+            whyAttend
+        });
+
+        console.log('event', event);
+
         const newEvent = await event.save();
         res.status(201).json(newEvent);
     } catch (error) {
@@ -107,38 +145,70 @@ const deleteEvent = async (req, res) => {
 // };
 
 const updateEvent = async (req, res) => {
-    const { eventName, text, features, price, duration, type, date, coverInsideHeadings, coverInsideTexts, bonusHeadings, bonusTexts, bonusPrices, whyAttend } = req.body;
-    console.log(duration, type, date);
+    const {
+      eventName,
+      text,
+      features,
+      price,
+      duration,
+      type,
+      date,
+      coverInsideHeadings,
+      coverInsideTexts,
+      bonusHeadings,
+      bonusTexts,
+      bonusPrices,
+      whyAttend
+    } = req.body;
+  
     const images = req.files.map(file => file.filename);
-    const coverInside = coverInsideHeadings.map((heading, index) => ({ heading, text: coverInsideTexts[index] }));
-    const bonuses = bonusHeadings.map((heading, index) => ({ heading, text: bonusTexts[index], price: bonusPrices[index] }));
-
+  
+    // Ensure coverInside data are arrays
+    const coverInsideHeadingsArray = Array.isArray(coverInsideHeadings) ? coverInsideHeadings : [coverInsideHeadings];
+    const coverInsideTextsArray = Array.isArray(coverInsideTexts) ? coverInsideTexts : [coverInsideTexts];
+  
+    // Ensure bonuses data are arrays
+    const bonusHeadingsArray = Array.isArray(bonusHeadings) ? bonusHeadings : [bonusHeadings];
+    const bonusTextsArray = Array.isArray(bonusTexts) ? bonusTexts : [bonusTexts];
+    const bonusPricesArray = Array.isArray(bonusPrices) ? bonusPrices : [bonusPrices];
+  
+    const coverInside = coverInsideHeadingsArray.map((heading, index) => ({
+      heading,
+      text: coverInsideTextsArray[index]
+    }));
+  
+    const bonuses = bonusHeadingsArray.map((heading, index) => ({
+      heading,
+      text: bonusTextsArray[index],
+      price: bonusPricesArray[index]
+    }));
+  
     try {
-        const event = await Event.findById(req.params.id);
-        if (event) {
-            event.eventName = eventName;
-            event.text = text;
-            event.features = features; // No need to split, it's already an array
-            if (images.length > 0) {
-                event.images = images; // Replace images if new images are uploaded
-            }
-            event.price = price;
-            event.duration = duration;   
-            event.type = type;
-            event.date = date;
-            event.coverInside = coverInside,
-            event.bonuses = bonuses,
-            event.whyAttend = whyAttend
-            const updatedEvent = await event.save();
-            res.json(updatedEvent);
-        } else {
-            res.status(404).json({ message: 'Event not found' });
+      const event = await Event.findById(req.params.id);
+      if (event) {
+        event.eventName = eventName;
+        event.text = text;
+        event.features = features; 
+        if (images.length > 0) {
+          event.images = images; 
         }
+        event.price = price;
+        event.duration = duration;
+        event.type = type;
+        event.date = date;
+        event.coverInside = coverInside;
+        event.bonuses = bonuses;
+        event.whyAttend = whyAttend;
+        
+        const updatedEvent = await event.save();
+        res.json(updatedEvent);
+      } else {
+        res.status(404).json({ message: 'Event not found' });
+      }
     } catch (error) {
-        res.status(500).json({ message: error.message });
+      res.status(500).json({ message: error.message });
     }
-};
-
+  };
 
 const savePayment = async (req, res) => {
     try {

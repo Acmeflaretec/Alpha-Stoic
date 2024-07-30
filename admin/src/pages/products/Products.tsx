@@ -15,8 +15,8 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateTimeField } from '@mui/x-date-pickers/DateTimeField';
 import './style.css';
 
-const BACK_URL = "https://backend.alphastoic.in";
-// const BACK_URL = "http://localhost:5000";
+// const BACK_URL = "https://backend.alphastoic.in";
+const BACK_URL = "http://localhost:5000";
 
 interface Event {
   _id: string;
