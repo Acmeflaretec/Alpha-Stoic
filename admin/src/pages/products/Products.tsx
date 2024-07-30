@@ -15,8 +15,8 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateTimeField } from '@mui/x-date-pickers/DateTimeField';
 import './style.css';
 
-const BACK_URL = "https://backend.alphastoic.in";
-// const BACK_URL = "http://localhost:5000";
+// const BACK_URL = "https://backend.alphastoic.in";
+const BACK_URL = "http://localhost:5000";
 
 interface Event {
   _id: string;
@@ -209,7 +209,8 @@ formData.bonuses.forEach(bonus => {
 if (isEditing && editingEventId) {
   await axios.put(`${BACK_URL}/events/${editingEventId}`, eventData);
 } else {
-  await axios.post(`${BACK_URL}/events`, eventData);
+ const response = await axios.post(`${BACK_URL}/events`, eventData);
+ console.log('post response-',response);
 }
 fetchEvents();
 setOpen(false);
