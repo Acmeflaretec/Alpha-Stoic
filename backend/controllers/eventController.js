@@ -45,6 +45,7 @@ const singleEvents = async (req, res) => {
 
 
 const createEvent = async (req, res) => {
+    console.log('creating events');
     try {
         const {
             eventName,
@@ -79,7 +80,6 @@ const createEvent = async (req, res) => {
             text: coverInsideTextsArray[index]
         }));
 
-        console.log('coverInside', coverInside);
 
         const bonuses = bonusHeadingsArray.map((heading, index) => ({
             heading,
@@ -87,7 +87,6 @@ const createEvent = async (req, res) => {
             price: bonusPricesArray[index]
         }));
 
-        console.log('bonuses', bonuses);
 
         const event = new Event({
             eventName,
@@ -102,8 +101,6 @@ const createEvent = async (req, res) => {
             bonuses,
             whyAttend
         });
-
-        console.log('event', event);
 
         const newEvent = await event.save();
         res.status(201).json(newEvent);
