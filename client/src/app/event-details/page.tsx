@@ -137,13 +137,16 @@ const EventDetails = () => {
     return <div>No workshop data available.</div>;
   }
 
+  console.log(workshop);
+  
+
   return (
     <>
       <EventPage workshop={workshop} />
-      <WhyThisEvent />
+      <WhyThisEvent workshop={workshop}/>
       <AttendeeSection />
-      <WhatWellCover />
-      <Bonuses />
+      <WhatWellCover workshop={workshop} />
+      <Bonuses workshop={workshop}/>
       <MeetYourMentor />
       <StickyPayment workshop={workshop}/>
     </>

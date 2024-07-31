@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { Button, useMediaQuery, useTheme, Modal, TextField, Box } from '@mui/material';
+import { Button, Modal, TextField, Box, Typography } from '@mui/material';
 import { styled } from '@mui/system';
 import axios from 'axios';
 
-const StickyContainer = styled('div')(({ theme }) => ({
+const StickyContainer = styled('div')({
   position: 'fixed',
   bottom: 0,
   left: 0,
   width: '100%',
-  backgroundColor: '#fff',
-  boxShadow: '0 -2px 10px rgba(0,0,0,0.1)',
+  backgroundColor: '#ffffff',
+  boxShadow: '0 -4px 20px rgba(0,0,0,0.1)',
   zIndex: 1000,
-  padding: '15px 20px',
-  [theme.breakpoints.down('sm')]: {
-    padding: '10px',
-  },
-}));
+  padding: '12px 0',
+  borderTop: '1px solid #e0e0e0',
+});
 
 const PaymentDetails = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -23,34 +21,33 @@ const PaymentDetails = styled('div')(({ theme }) => ({
   alignItems: 'center',
   maxWidth: '1200px',
   margin: '0 auto',
+  padding: '0 20px',
   [theme.breakpoints.down('sm')]: {
     flexDirection: 'column',
-    textAlign: 'center',
+    gap: '10px',
   },
 }));
 
-const EventName = styled('h1')(({ theme }) => ({
-  fontWeight: 'bold',
+const Price = styled(Typography)(({ theme }) => ({
+  fontWeight: 800,
   color: '#3EB449',
+  fontSize: '1.8rem',
   [theme.breakpoints.down('sm')]: {
-    fontSize: '20px',
-  },
-}));
-
-const Price = styled('h3')(({ theme }) => ({
-  fontWeight: 'extra-bold',
-  color: '#3EB449',
-  [theme.breakpoints.down('sm')]: {
-    fontSize: '16px',
+    fontSize: '1.5rem',
+    marginBottom: '10px',
   },
 }));
 
 const EnrollButton = styled(Button)(({ theme }) => ({
   backgroundColor: '#3EB449',
-  fontSize: '20px',
+  color: '#ffffff',
+  fontSize: '1rem',
+  padding: '10px 24px',
+  '&:hover': {
+    backgroundColor: '#2E8836',
+  },
   [theme.breakpoints.down('sm')]: {
-    fontSize: '16px',
-    marginTop: '10px',
+    width: '100%',
   },
 }));
 
@@ -63,8 +60,6 @@ interface StickyPaymentProps {
 }
 
 const StickyPayment: React.FC<StickyPaymentProps> = ({ workshop }) => {
-  const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
   const [openModal, setOpenModal] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', contactNumber: '' });
   const [isEventOver, setIsEventOver] = useState(false);
@@ -177,9 +172,12 @@ const StickyPayment: React.FC<StickyPaymentProps> = ({ workshop }) => {
     <>
       <StickyContainer>
         <PaymentDetails>
-          <EventName>{workshop.eventName}</EventName>
-          <Price>₹ {workshop.price}/- Only</Price>
-          <EnrollButton variant="contained" onClick={handleEnrollClick} disabled={isEventOver}>
+          <Price><span className='text-dark me-3'>Now at</span> ₹{workshop.price.toLocaleString('en-IN')}/-</Price>
+          <EnrollButton
+            variant="contained"
+            onClick={handleEnrollClick}
+            disabled={isEventOver}
+          >
             Enroll Now
           </EnrollButton>
         </PaymentDetails>
@@ -192,8 +190,12 @@ const StickyPayment: React.FC<StickyPaymentProps> = ({ workshop }) => {
         aria-describedby="enroll-modal-description"
       >
         <Box sx={{ ...modalStyle }}>
-          <h2 id="enroll-modal-title">Enroll for</h2>
-          <h3 style={{ wordWrap: 'break-word', wordBreak: 'break-word' }}>{workshop.eventName}</h3>
+          <Typography variant="h4" component="h2" gutterBottom>
+            Enroll for
+          </Typography>
+          <Typography variant="h5" gutterBottom sx={{ wordBreak: 'break-word' }}>
+            {workshop.eventName}
+          </Typography>
           <TextField
             label="Name"
             name="name"
@@ -202,6 +204,7 @@ const StickyPayment: React.FC<StickyPaymentProps> = ({ workshop }) => {
             fullWidth
             margin="normal"
             required
+            variant="outlined"
           />
           <TextField
             label="Email"
@@ -211,6 +214,7 @@ const StickyPayment: React.FC<StickyPaymentProps> = ({ workshop }) => {
             fullWidth
             margin="normal"
             required
+            variant="outlined"
           />
           <TextField
             label="WhatsApp Number"
@@ -220,12 +224,31 @@ const StickyPayment: React.FC<StickyPaymentProps> = ({ workshop }) => {
             fullWidth
             margin="normal"
             required
+            variant="outlined"
           />
-          {workshop.price ?
-            <Button style={{ backgroundColor: 'green' }} variant="contained" color="success" fullWidth className="mt-4" onClick={handleSubmit} disabled={isEventOver}>
-              Pay with Razorpay
+          {workshop.price ? (
+            <Button
+              variant="contained"
+              style={{ backgroundColor: '#3EB449', color: '#ffffff' }}
+              fullWidth
+              sx={{ mt: 3, mb: 2 }}
+              onClick={handleSubmit}
+              disabled={isEventOver}
+            >
+              Pay ₹{workshop.price.toLocaleString('en-IN')} with Razorpay
             </Button>
-            : <Button style={{ backgroundColor: 'green' }} variant="contained" color="success" fullWidth className="mt-4" onClick={handleSave} disabled={isEventOver}>Register</Button>}
+          ) : (
+            <Button
+              variant="contained"
+              style={{ backgroundColor: '#3EB449', color: '#ffffff' }}
+              fullWidth
+              sx={{ mt: 3, mb: 2 }}
+              onClick={handleSave}
+              disabled={isEventOver}
+            >
+              Register for Free
+            </Button>
+          )}
         </Box>
       </Modal>
     </>
@@ -238,10 +261,11 @@ const modalStyle = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
+  maxWidth: '90%',
+  bgcolor: '#ffffff',
   boxShadow: 24,
   p: 4,
+  borderRadius: 2,
 };
 
 export default StickyPayment;
