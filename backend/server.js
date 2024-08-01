@@ -8,7 +8,6 @@ const path = require('path');
 dotenv.config();
 
 connectDB();
-  
 const app = express();
 // app.use(cors({
 //   origin: [process.env.CLIENT,process.env.ADMIN], 
@@ -25,8 +24,8 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Increase payload limit
-app.use(express.json({ limit: '100mb' }));
-app.use(express.urlencoded({ limit: '100mb', extended: true }));
+app.use(express.json({ limit:'100mb' }));
+app.use(express.urlencoded({ limit:'100mb', extended: true }));
 
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
