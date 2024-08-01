@@ -103,7 +103,7 @@ const createEvent = async (req, res) => {
         });
 
         const newEvent = await event.save();
-        res.status(201).json(newEvent);
+        res.status(201).json({newEvent, message: 'event storing is successfull'});
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
